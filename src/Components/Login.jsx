@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
 
@@ -13,7 +14,7 @@ export default function Login() {
       <div className='flex flex-col justify-center items-center px-4 py-5 rounded-[30px] max-w-[300px] sm:max-w-[400px] max-h-[600px] bg-white shadow-lg'>
         <form>
             <h2 className='text-3xl font-semibold mb-1'>Log In</h2>
-            <p className='text-base font-semibold mb-4 text-[#727986]'>Enter your details to log into your Brainout Account:</p>
+            <p className='text-base font-semibold mb-4 text-[#727986]'>Enter your details to log into your AskItOut Account:</p>
             <div className='flex flex-col mb-4'>
                 <label className='text-sm font-semibold mb-2.5'>Phone Number or Email*</label>
                 <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="text" placeholder='natasha.malkova@outlook.com' />
@@ -49,8 +50,8 @@ export default function Login() {
                 <p className='text-xs ml-1'>Remember me on this device.</p>
             </div>
             <button className='w-full py-1 bg-[#339AF0] my-4 rounded-full'><span className='text-base font-semibold text-white'>Log In</span></button>
-            <p className='text-xs text-center'><a href="/" className='text-[#0090FC] visited:text-[#0090FC]'>Forgot Password?</a></p>
-            <p className='text-xs text-center my-4'>Don't have a Brainout account? <a href="/" className='text-[#0090FC] visited:text-[#0090FC]'>Sign Up</a></p>
+            <p className='text-xs text-center'><Link to="/" className='text-[#0090FC] visited:text-[#0090FC]'>Forgot Password?</Link></p>
+            <p className='text-xs text-center my-4'>Don't have a AskItOut account? <Link to="/signup" className='text-[#0090FC] visited:text-[#0090FC]'>Sign Up</Link></p>
         </form>
       </div>
     </div>

@@ -1,38 +1,47 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  // Toggle view password
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   }
 
+  // Toggle view confirm password
   const toggleShowConfirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   }
 
   return (
     <div className='w-full h-screen flex justify-center items-center bg-[#f2f2f2]'>
+
       <div className='flex flex-col justify-center items-center px-4 py-5 rounded-[30px] max-w-[300px] sm:max-w-[400px] max-h-[800px] bg-white shadow-lg'>
+
         <form>
           <h2 className='text-3xl font-semibold mb-1'>Sign Up</h2>
-          <p className='text-base font-semibold mb-4 text-[#727986]'>Enter your details to create your Brainout Account:</p>
+          <p className='text-base font-semibold mb-4 text-[#727986]'>Enter your details to create your AskItOut Account:</p>
+
           <div className='flex justify-between'>
             <div className='flex flex-col mb-4 max-w-[132px] sm:max-w-[200px]'>
               <label htmlFor="" className='text-sm font-semibold mb-2.5'>First Name*</label>
               <input type="text" placeholder='Natasha' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' />
             </div>
+
             <div className='flex flex-col mb-4 max-w-[132px] sm:max-w-[200px]'>
               <label htmlFor="" className='text-sm font-semibold mb-2.5'>Last Name*</label>
               <input type="text" placeholder='Malkova' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' />
             </div>
           </div>
+
           <div className='flex flex-col mb-4'>
             <label className='text-sm font-semibold mb-2.5' htmlFor="">Email*</label>
             <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="email" placeholder='natasha.malkova@outlook.com' />
           </div>
+
           <div>
             <label htmlFor="" className='text-sm font-semibold mb-2.5'>Phone Number*</label>
             <div className='flex'>
@@ -40,6 +49,7 @@ export default function Signup() {
               <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] max-w-[180px] sm:max-w-[300px] ml-4' type="tel" defaultValue={8765432389} pattern="[0-9]{10}" />
             </div>
           </div>
+
           <div>
             <div className='flex flex-col mb-4 relative'>
                   <label className='text-sm font-semibold mb-2.5'>Password*</label>
@@ -84,6 +94,7 @@ export default function Signup() {
                   </div>
             </div>
           </div>
+
           <div className='flex items-center'>
                 <label htmlFor="agreement-checkbox" className='cursor-pointer relative'>
                     <input type="checkbox" id="agreement-checkbox" className='appearance-none w-4 h-4 border-[1.5px] border-black rounded hover:border-[#0090FC]'/>
@@ -91,8 +102,9 @@ export default function Signup() {
                         <path d="M1.05261 5.05263C1.05261 5.05263 2.39998 5.82107 3.07367 6.94736C3.07367 6.94736 5.09472 2.52631 7.78945 1.05263" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg> 
                 </label>
-                <p className='text-xs ml-1'>I agree with Brainout's <a href="/" className='text-[#0090FC] visited:text-[#0090FC]'>User Agreement</a> and <a href="/" className='text-[#0090FC] visited:text-[#0090FC]'>Privacy Policy</a>.</p>
+                <p className='text-xs ml-1'>I agree with AskItOut's <Link to="/" className='text-[#0090FC] visited:text-[#0090FC]'>User Agreement</Link> and <Link to="/" className='text-[#0090FC] visited:text-[#0090FC]'>Privacy Policy</Link>.</p>
           </div>
+
           <div className='flex items-center'>
                 <label htmlFor="robot-checkbox" className='cursor-pointer relative'>
                     <input type="checkbox" id="robot-checkbox" className='appearance-none w-4 h-4 border-[1.5px] border-black hover:border-[#0090FC] rounded'/>
@@ -102,8 +114,9 @@ export default function Signup() {
                 </label>
                 <p className='text-xs ml-1'>I am not a Robot.</p>
           </div>
+
           <button className='w-full py-1 bg-[#339AF0] my-4 rounded-full'><span className='text-base font-semibold text-white'>Sign Up</span></button>
-          <p className='text-xs text-center my-4'>Already have a Brainout account? <a href="/" className='text-[#0090FC] visited:text-[#0090FC]'>Log In</a></p>
+          <p className='text-xs text-center my-4'>Already have a AskItOut account? <Link to="/login" className='text-[#0090FC] visited:text-[#0090FC]'>Log In</Link></p>
         </form>
       </div>
     </div>
