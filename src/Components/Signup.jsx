@@ -44,7 +44,7 @@ export default function Signup() {
 
           <div className='flex flex-col mb-4'>
             <label htmlFor="" className='text-sm font-semibold mb-2.5'>Username*</label>
-              <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="text" defaultValue={"nat.kova"} pattern="" />
+              <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="text" placeholder='nat.kova' pattern="" />
           </div>
 
           <div>
