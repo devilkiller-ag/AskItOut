@@ -16,7 +16,7 @@ export default function Login() {
             <h2 className='text-3xl font-semibold mb-1'>Log In</h2>
             <p className='text-base font-semibold mb-4 text-[#727986]'>Enter your details to log into your AskItOut Account:</p>
             <div className='flex flex-col mb-4'>
-                <label className='text-sm font-semibold mb-2.5'>Phone Number or Email*</label>
+                <label className='text-sm font-semibold mb-2.5'>Username or Email*</label>
                 <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="text" placeholder='natasha.malkova@outlook.com' />
             </div>
             <div className='flex flex-col mb-4 relative'>

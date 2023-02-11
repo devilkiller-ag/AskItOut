@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Home from './Components/Home';
+import Main from './Components/Main';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Welcome1 from './Components/Welcome1';
@@ -16,7 +16,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path='/' element={ <Home /> } />
+          <Route exact path='/' element={ <Main /> } />
           <Route exact path='/login' element={ <Login /> } />
           <Route exact path='/signup' element={ <Signup /> } />
           <Route exact path='/welcome1' element={ <Welcome1 /> } />

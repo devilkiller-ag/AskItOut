@@ -42,12 +42,9 @@ export default function Signup() {
             <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="email" placeholder='natasha.malkova@outlook.com' />
           </div>
 
-          <div>
-            <label htmlFor="" className='text-sm font-semibold mb-2.5'>Phone Number*</label>
-            <div className='flex'>
-              <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] max-w-[92px]' type="text" defaultValue={"IN +91"}/>
-              <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] max-w-[180px] sm:max-w-[300px] ml-4' type="tel" defaultValue={8765432389} pattern="[0-9]{10}" />
-            </div>
+          <div className='flex flex-col mb-4'>
+            <label htmlFor="" className='text-sm font-semibold mb-2.5'>Username*</label>
+              <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="text" defaultValue={"nat.kova"} pattern="" />
           </div>
 
           <div>
