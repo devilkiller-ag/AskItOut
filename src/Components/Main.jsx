@@ -1,7 +1,7 @@
 import Welcome1 from './Welcome1';
 
 const Main = () => {
-  return (
+  return ( 
     <div>
       <Welcome1 />
     </div>
