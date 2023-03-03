@@ -1,9 +1,11 @@
-import Welcome1 from './Welcome1';
+// import Welcome1 from './Welcome1';
+import TextEditor from './TextEditor';
 
 const Main = () => {
   return ( 
     <div>
-      <Welcome1 />
+      {/* <Welcome1 /> */}
+      <TextEditor />
     </div>
   )
 }
