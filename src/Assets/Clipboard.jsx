@@ -16,7 +16,7 @@ const MenuBar = ({ editor }) => {
   })
 
   const [isTextTypeDropdownActive, setIsTextTypeDropdownActive] = useState(false);
-  const [selectedTextType, setSelectedTextType] = useState('');
+  const [selectedTextType, setSelectedTextType] = useState('Normal Text');
 
   return (
     <>
@@ -99,7 +99,7 @@ const MenuBar = ({ editor }) => {
                             onClick={() => editor.chain().focus().setParagraph().run()}
                             className={editor.isActive('paragraph') ? 'is-active' : ''}
                         >
-                            paragraph
+                            Normal Text
                         </button>
                     </div>
                     <div className='bg-white hover:bg-[#f4f4f4] cursor-pointer'> {/* Dropdown Item */}
