@@ -1,7 +1,45 @@
 /* Basic editor styles */
 .ProseMirror {
     background-color: #fff;
-    height: 500px;
+    height: 80vh;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+    border: none;
+    outline: none;
+}
+
+/* Editor Scroll */
+.ProseMirror::-webkit-scrollbar {
+  width: 4px; /* width of the entire scrollbar */
+  background-color: transparent;
+}
+
+.ProseMirror::-webkit-scrollbar-track {
+  -webkit-box-shadow: none !important;
+  background-color: transparent;
+}
+
+.ProseMirror::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;    /* color of the scroll thumb */
+  border-radius: 2px;
+}
+
+/* Menubar Scroll */
+
+.menubar::-webkit-scrollbar {
+  height: 4px; /* width of the entire scrollbar */
+  background-color: transparent;
+}
+
+.menubar::-webkit-scrollbar-track {
+  -webkit-box-shadow: none !important;
+  background-color: transparent;
+}
+
+.menubar::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;    /* color of the scroll thumb */
+  border-radius: 2px;
 }
 
 .ProseMirror > * + * {
@@ -60,6 +98,16 @@
 .ProseMirror a {
     color: #68cef8;
     text-decoration: underline;
+}
+
+
+.ProseMirror img {
+  height: auto;
+  max-width: 100%;
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 3px solid #68cef8;
 }
 
 /**

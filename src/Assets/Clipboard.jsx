@@ -15,8 +15,8 @@ const MenuBar = ({ editor }) => {
     }
   })
 
-  const [isTextTypeDropdownActive, setIsTextTypeDropdownActive] = useState(false);
-  const [selectedTextType, setSelectedTextType] = useState('Normal Text');
+  const [isTextStyleDropdownActive, setIsTextStyleDropdownActive] = useState(false);
+  const [selectedTextStyle, setSelectedTextStyle] = useState('Normal Text');
 
   return (
     <>
@@ -82,18 +82,18 @@ const MenuBar = ({ editor }) => {
         </button>
 
         <div className="w-[109px] h-7 bg-green-300 relative select-none z-40"> {/* Dropdown */}
-            <div className='bg-slate-400 text-center flex items-center justify-between cursor-pointer' onClick={() => {setIsTextTypeDropdownActive((prev) => !prev)}}> {/* Dropdown Button */}
-                <span>{selectedTextType}</span>
+            <div className='bg-slate-400 text-center flex items-center justify-between cursor-pointer' onClick={() => {setIsTextStyleDropdownActive((prev) => !prev)}}> {/* Dropdown Button */}
+                <span>{selectedTextStyle}</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 11L3 5.99999L3.7 5.29999L8 9.59999L12.3 5.29999L13 5.99999L8 11Z" fill="#212529"/>
                 </svg>
             </div> 
-            { isTextTypeDropdownActive && (
+            { isTextStyleDropdownActive && (
                 <div className='bg-red-400 absolute -bottom-[170px] w-full'> {/* Dropdown Content */}
                     <div 
                     onClick={ (e)=> {
-                      setSelectedTextType(e.target.textContent)
-                      setIsTextTypeDropdownActive(false)
+                      setSelectedTextStyle(e.target.textContent)
+                      setIsTextStyleDropdownActive(false)
                     } } className=''> {/* Dropdown Item */}
                         <button
                             onClick={() => editor.chain().focus().setParagraph().run()}
@@ -251,11 +251,11 @@ export default TextEditor;
 
 // -------------------
 
-// {textTypeOptions.map((key, value) => (
+// {TextStyleOptions.map((key, value) => (
 //     <div 
 //       onClick={ (e)=> {
-//         setSelectedTextType(key)
-//         setIsTextTypeDropdownActive(false)
+//         setSelectedTextStyle(key)
+//         setIsTextStyleDropdownActive(false)
 //       } } className=''> {/* Dropdown Item */}
 //           <button
 //               onClick={() => editor.chain().focus().setParagraph().run()}
@@ -269,7 +269,7 @@ export default TextEditor;
 
 
 {
-  Object.entries(textTypeOptions).map(([key, value]) => {
+  Object.entries(TextStyleOptions).map(([key, value]) => {
     if (key === 'paragraph') {
       return (
         <button
