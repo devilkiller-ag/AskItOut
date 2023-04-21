@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Welcome_image_3 from '../Assets/images/Welcome_image_3.png';
+import Welcome_image_3 from '../../Assets/images/Welcome/Welcome_image_3.png';
 
 export default function Welcome1() {
   return (

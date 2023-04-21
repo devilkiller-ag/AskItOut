@@ -1,4 +1,4 @@
-import '../styles/textEditorStyle.css'
+import './../../styles/AskPage/textEditorStyle.css'
 
 import React, { useState, useCallback } from 'react'
 
@@ -87,7 +87,7 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className='menubar flex items-center bg-white h-[46px] my-2 px-2 gap-2 rounded-[10px] overflow-x-scroll'>
+    <div className='menubar flex items-center bg-white h-[46px] my-2 px-2 gap-2 rounded-[10px] overflow-x-scroll relative'>
       <div className="group-history h-7 flex items-center">
         <button
           className="cursor-pointer"
@@ -122,7 +122,7 @@ const MenuBar = ({ editor }) => {
         </button>
       </div>
       
-      <div className="text-style-dropdown relative select-none min-w-[109px] h-7"> {/* Dropdown */}
+      <div className="text-style-dropdown select-none min-w-[109px] h-7 relative z-50"> {/* Dropdown */}
         <div className="text-style-dropdown-btn text-center flex justify-around items-center cursor-pointer h-full w-full text-sm" onClick={() => {setIsTextStyleDropdownActive((prev) => !prev)}}> {/* Dropdown Button */}
           <span>{selectedTextStyle}</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"> {/** Dropdown Icon */}
