@@ -253,9 +253,9 @@ const MenuBar = ({ editor }) => {
         >
           <div className='min-w-[28px] flex justify-center items-center'>
             <svg width="18" height="18" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L11.4999 12.9999" stroke="#000001" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M11.4999 1L1 12.9999" stroke="#000001" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15.25 16.7499V16.3749C15.25 15.8776 15.4475 15.4007 15.7992 15.049C16.1508 14.6974 16.6277 14.4999 17.125 14.4999C17.6223 14.4999 18.0992 14.6974 18.4508 15.049C18.8024 15.4007 19 15.8776 19 16.3749C19.0042 16.734 18.9267 17.0894 18.7734 17.4143C18.6201 17.7391 18.3949 18.0248 18.115 18.2498L15.25 20.4998H19" stroke="#000001" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1 1L11.4999 12.9999" stroke="#000001" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M11.4999 1L1 12.9999" stroke="#000001" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M15.25 16.7499V16.3749C15.25 15.8776 15.4475 15.4007 15.7992 15.049C16.1508 14.6974 16.6277 14.4999 17.125 14.4999C17.6223 14.4999 18.0992 14.6974 18.4508 15.049C18.8024 15.4007 19 15.8776 19 16.3749C19.0042 16.734 18.9267 17.0894 18.7734 17.4143C18.6201 17.7391 18.3949 18.0248 18.115 18.2498L15.25 20.4998H19" stroke="#000001" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </button>
@@ -266,9 +266,9 @@ const MenuBar = ({ editor }) => {
         >
           <div className='min-w-[28px] flex justify-center items-center'>
             <svg width="18" height="18" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 8.49988L11.4999 20.4998" stroke="#000001" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M11.4999 8.49988L1 20.4998" stroke="#000001" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15.25 3.24998V2.87498C15.25 2.37771 15.4475 1.9008 15.7992 1.54917C16.1508 1.19754 16.6277 1 17.125 1V1C17.6223 1 18.0992 1.19754 18.4508 1.54917C18.8024 1.9008 19 2.37771 19 2.87498C19.0042 3.23414 18.9267 3.58956 18.7734 3.91439C18.6201 4.23921 18.3949 4.52493 18.115 4.74997L15.25 6.99995H19" stroke="#000001" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1 8.49988L11.4999 20.4998" stroke="#000001" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M11.4999 8.49988L1 20.4998" stroke="#000001" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M15.25 3.24998V2.87498C15.25 2.37771 15.4475 1.9008 15.7992 1.54917C16.1508 1.19754 16.6277 1 17.125 1V1C17.6223 1 18.0992 1.19754 18.4508 1.54917C18.8024 1.9008 19 2.37771 19 2.87498C19.0042 3.23414 18.9267 3.58956 18.7734 3.91439C18.6201 4.23921 18.3949 4.52493 18.115 4.74997L15.25 6.99995H19" stroke="#000001" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </button>
