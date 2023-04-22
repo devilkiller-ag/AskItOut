@@ -25,9 +25,16 @@ const QuestionDetail = () => {
             <div className='expand flex item-center justify-end cursor-pointer' {...getToggleProps({
                 onClick: () => setExpanded((prevExpanded) => !prevExpanded),
             })}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 10.5L12 13.5L15 10.5" stroke="#A8A8A8" />
-                </svg>
+                {
+                isExpanded ?
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 13.5L12 10.5L9 13.5" stroke="#A8A8A8" />
+                    </svg>
+                    :
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 10.5L12 13.5L15 10.5" stroke="#A8A8A8" />
+                    </svg>
+                }
                 <p className='text-sm font-semibold text-[#A8A8A8]'>{isExpanded ? 'Collapse' : 'Expand'}</p>
             </div>
         </div>
