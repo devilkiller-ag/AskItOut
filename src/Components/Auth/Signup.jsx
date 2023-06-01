@@ -25,32 +25,32 @@ export default function Signup() {
           <h2 className='text-3xl font-semibold mb-1'>Sign Up</h2>
           <p className='text-base font-semibold mb-4 text-[#727986]'>Enter your details to create your AskItOut Account:</p>
 
-          <div className='flex justify-between'>
+          <div className='flex justify-between gap-1'>
             <div className='flex flex-col mb-4 max-w-[132px] sm:max-w-[200px]'>
               <label htmlFor="" className='text-sm font-semibold mb-2.5'>First Name*</label>
-              <input type="text" placeholder='Natasha' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' />
+              <input type="text" placeholder='Natasha' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' />
             </div>
 
             <div className='flex flex-col mb-4 max-w-[132px] sm:max-w-[200px]'>
               <label htmlFor="" className='text-sm font-semibold mb-2.5'>Last Name*</label>
-              <input type="text" placeholder='Malkova' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' />
+              <input type="text" placeholder='Malkova' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' />
             </div>
           </div>
 
           <div className='flex flex-col mb-4'>
             <label className='text-sm font-semibold mb-2.5' htmlFor="">Email*</label>
-            <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="email" placeholder='natasha.malkova@outlook.com' />
+            <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' type="email" placeholder='natasha.malkova@outlook.com' />
           </div>
 
           <div className='flex flex-col mb-4'>
             <label htmlFor="" className='text-sm font-semibold mb-2.5'>Username*</label>
-              <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type="text" placeholder='nat.kova' pattern="" />
+              <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' type="text" placeholder='nat.kova' pattern="" />
           </div>
 
           <div>
             <div className='flex flex-col mb-4 relative'>
                   <label className='text-sm font-semibold mb-2.5'>Password*</label>
-                  <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type={(showPassword === false) ? "password" : "text"} placeholder='*********' />
+                  <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' type={(showPassword === false) ? "password" : "text"} placeholder='*********' />
                   <div className='absolute right-2 top-10 cursor-pointer'>
                     {
                       (showPassword === false) ?
@@ -71,7 +71,7 @@ export default function Signup() {
             </div>
             <div className='flex flex-col mb-4 relative'>
                   <label className='text-sm font-semibold mb-2.5'>Confirm Password*</label>
-                  <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px]' type={(showConfirmPassword === false) ? "password" : "text"} placeholder='*********' />
+                  <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' type={(showConfirmPassword === false) ? "password" : "text"} placeholder='*********' />
                   <div className='absolute right-2 top-10 cursor-pointer'>
                     {
                       (showConfirmPassword === false) ?
@@ -94,7 +94,7 @@ export default function Signup() {
 
           <div className='flex items-center'>
                 <label htmlFor="agreement-checkbox" className='cursor-pointer relative'>
-                    <input type="checkbox" id="agreement-checkbox" className='appearance-none w-4 h-4 border-[1.5px] border-black rounded hover:border-[#0090FC]'/>
+                    <input type="checkbox" id="agreement-checkbox" className='appearance-none w-4 h-4 border-[1.5px] border-black rounded hover:border-[#0090FC] focus:outline-none'/>
                     <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute left-1 top-[6px] hidden'>
                         <path d="M1.05261 5.05263C1.05261 5.05263 2.39998 5.82107 3.07367 6.94736C3.07367 6.94736 5.09472 2.52631 7.78945 1.05263" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg> 
@@ -104,7 +104,7 @@ export default function Signup() {
 
           <div className='flex items-center'>
                 <label htmlFor="robot-checkbox" className='cursor-pointer relative'>
-                    <input type="checkbox" id="robot-checkbox" className='appearance-none w-4 h-4 border-[1.5px] border-black hover:border-[#0090FC] rounded'/>
+                    <input type="checkbox" id="robot-checkbox" className='appearance-none w-4 h-4 border-[1.5px] border-black hover:border-[#0090FC] rounded focus:outline-none'/>
                     <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg" className='absolute left-1 top-[6px] hidden'>
                         <path d="M1.05261 5.05263C1.05261 5.05263 2.39998 5.82107 3.07367 6.94736C3.07367 6.94736 5.09472 2.52631 7.78945 1.05263" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg> 

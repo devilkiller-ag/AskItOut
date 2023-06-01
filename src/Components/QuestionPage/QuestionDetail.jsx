@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useCollapse } from 'react-collapsed'
 
-const QuestionDetail = () => {
+const QuestionDetail = ({ questionBody }) => {
 
     const [isExpanded, setExpanded] = useState(false)
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded, collapsedHeight: 42 })
@@ -18,9 +18,7 @@ const QuestionDetail = () => {
                 </div>
             </div>
 
-            <div className="question text-sm font-base black px-8"{...getCollapseProps()}>
-                Why scrollbar appears when we use viewport unit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia ipsam fugit aliquam sequi, corporis vitae deserunt velit quisquam sunt porro saepe aliquid, laboriosam quo magni atque qui dolorum architecto necessitatibus.
-            </div>
+            <div className="question text-sm font-base black px-8"{...getCollapseProps()}>{ isExpanded ? questionBody : questionBody.substring(0, 150) }</div>
 
             <div className='expand flex item-center justify-end cursor-pointer' {...getToggleProps({
                 onClick: () => setExpanded((prevExpanded) => !prevExpanded),

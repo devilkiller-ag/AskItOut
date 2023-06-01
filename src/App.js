@@ -11,6 +11,7 @@ import Welcome1 from './Components/Welcome/Welcome1';
 import Welcome2 from './Components/Welcome/Welcome2';
 import Welcome3 from './Components/Welcome/Welcome3';
 import AskQuestion from "./Components/AskPage/AskQuestion";
+import QuestionThread from "./Components/QuestionPage/QuestionThread";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/welcome2' element={ <Welcome2 /> } />
           <Route exact path='/welcome3' element={ <Welcome3 /> } />
           <Route exact path='/ask' element={ <AskQuestion /> } />
+          <Route exact path='/thread' element={ <QuestionThread /> } />
         </Routes>
       </Router>
     </>
