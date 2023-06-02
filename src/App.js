@@ -5,13 +5,11 @@ import {
 } from "react-router-dom";
 
 import Main from './Components/Main';
-import Login from './Components/Auth/Login';
-import Signup from './Components/Auth/Signup';
-import Welcome1 from './Components/Welcome/Welcome1';
-import Welcome2 from './Components/Welcome/Welcome2';
-import Welcome3 from './Components/Welcome/Welcome3';
+import { Login, Signup } from './Components/Auth';
+import { Welcome1, Welcome2, Welcome3 } from './Components/Welcome';
 import AskQuestion from "./Components/AskPage/AskQuestion";
-import QuestionThread from "./Components/QuestionPage/QuestionThread";
+import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import ErrorPage from "./Components/ErrorPage";
 
 function App() {
   return (
@@ -25,7 +23,8 @@ function App() {
           <Route exact path='/welcome2' element={ <Welcome2 /> } />
           <Route exact path='/welcome3' element={ <Welcome3 /> } />
           <Route exact path='/ask' element={ <AskQuestion /> } />
-          <Route exact path='/thread' element={ <QuestionThread /> } />
+          <Route exact path='/profile' element={ <ProfilePage /> } />
+          <Route exact path='*' element={ <ErrorPage /> } />
         </Routes>
       </Router>
     </>

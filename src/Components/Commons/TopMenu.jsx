@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchUser } from '../../utils';
+import { NavLink } from 'react-router-dom';
 
-
-const TopMenu = ({ currentPage, fromPage, toPage }) => {
+const TopMenu = ({ currentPage, fromPage }) => {
 
     // MOBILE OR DESKTOP?
     const [isMobile, setIsMobile] = useState(false);
@@ -27,19 +27,21 @@ const TopMenu = ({ currentPage, fromPage, toPage }) => {
     const user = fetchUser(1);
 
     return (
-        <div id='topmenu' className={`${isMobile ? 'w-full' : 'w-[360px]' } h-16 flex justify-between items-center`}>
+        <div id='topmenu' className={`${isMobile ? 'w-full' : 'w-[360px]'} h-16 flex justify-between items-center`}>
             <div id="left_topmenu">
                 {
                     currentPage === 'home' ?
                         <div id="username" className='text-xl text-center'>{isMobile ? user.firstName : `${user.firstName} ${user.lastName}`}</div>
                         :
-                        <div id='backbutton' className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="20" fill="white" />
-                                <path d="M12.9998 19L27.9998 18.9998" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M16.9998 13.9999L12.7069 18.2928C12.3736 18.6261 12.2069 18.7928 12.2069 18.9999C12.2069 19.207 12.3736 19.3737 12.7069 19.707L16.9998 23.9999" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
+                        <NavLink to={`/${fromPage == 'home' ? '' : fromPage}`}>
+                            <div id='backbutton' className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="20" fill="white" />
+                                    <path d="M12.9998 19L27.9998 18.9998" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M16.9998 13.9999L12.7069 18.2928C12.3736 18.6261 12.2069 18.7928 12.2069 18.9999C12.2069 19.207 12.3736 19.3737 12.7069 19.707L16.9998 23.9999" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                        </NavLink>
                 }
             </div>
 
@@ -68,10 +70,12 @@ const TopMenu = ({ currentPage, fromPage, toPage }) => {
                                 <path d="M20 25C20 24.0681 20 23.6022 20.1522 23.2346C20.3552 22.7446 20.7446 22.3552 21.2346 22.1522C21.6022 22 22.0681 22 23 22C23.9319 22 24.3978 22 24.7654 22.1522C25.2554 22.3552 25.6448 22.7446 25.8478 23.2346C26 23.6022 26 24.0681 26 25C26 25.9319 26 26.3978 25.8478 26.7654C25.6448 27.2554 25.2554 27.6448 24.7654 27.8478C24.3978 28 23.9319 28 23 28C22.0681 28 21.6022 28 21.2346 27.8478C20.7446 27.6448 20.3552 27.2554 20.1522 26.7654C20 26.3978 20 25.9319 20 25Z" stroke="#2A353D" strokeWidth="1.5" />
                             </svg>
                             :
-                            <svg id='profile' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="#2A353D" strokeWidth="1.5" />
-                            </svg>
+                            <NavLink to="/profile">
+                                <svg id='profile' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="#2A353D" strokeWidth="1.5" />
+                                </svg>
+                            </NavLink>
                     }
                 </div>
             </div>

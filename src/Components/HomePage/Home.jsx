@@ -5,7 +5,7 @@ import BookData from './../../Assets/data/SampleData.json';
 import Quest from '../Commons/Quest';
 import { BottomMenu, SearchBar, TopMenu } from '../Commons';
 import Categories from './Categories';
-import QuestionThread from './../QuestionPage/QuestionThread';
+import QuestionThread from './../QuestionPage';
 import { fetchQuestions, getDate } from '../../utils';
 
 export default function Home() {
@@ -85,7 +85,7 @@ export default function Home() {
             < BottomMenu currentPage='HomePage' />
           </div>
         </main>
-
+        
         {
           !isMobile && <aside className={`bg-[#F2F2F2] w-[25%] h-[90vh] overflow-y-auto`}>
             {/* &nbsp; */}
