@@ -23,7 +23,7 @@ export default function Home() {
             <h1 className='text-3xl font-semibold text-center h-16 w-full py-3 bg-blue-300'>AskItOut</h1>
             <SearchBar placeholder="Type your question" searchdata={BookData} />
           </div>
-          <div className='text-xs text-center text-[#6A737D]'>
+          <div className='text-xs text-center text-[#656666]'>
             <div><a href="/" target='_blank'>T&C</a> &nbsp;•&nbsp; <a href="/" target='_blank'>Code of Conduct</a> &nbsp;•&nbsp; <a href="/" target='_blank'>Privacy</a></div>
             <div>&#169;&nbsp;{getDate(Date.now()).year} AskItOut</div>
           </div>

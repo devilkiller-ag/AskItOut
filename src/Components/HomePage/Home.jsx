@@ -5,6 +5,7 @@ import BookData from './../../Assets/data/SampleData.json';
 import Quest from '../Commons/Quest';
 import { BottomMenu, SearchBar, TopMenu } from '../Commons';
 import Categories from './Categories';
+import QuestionThread from './../QuestionPage/QuestionThread';
 import { fetchQuestions, getDate } from '../../utils';
 
 export default function Home() {
@@ -62,7 +63,7 @@ export default function Home() {
           </aside>
         }
 
-        <main className={`${isMobile ? 'h-full w-full' : 'h-[91vh] overflow-y-auto w-[50%]'}`}>
+        <main className={`${isMobile ? 'h-full w-full' : 'h-[91vh] overflow-y-auto w-[50%] pb-[96px]'}`}>
           {isMobile && <SearchBar placeholder="Type your question" searchdata={BookData} />}
 
           <Categories />
@@ -80,14 +81,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bottomMenu z-50 flex items-center justify-center absolute bottom-0 left-0 right-0 m-auto">
+          <div id='bottomMenu' className="z-50 flex items-center justify-center absolute bottom-0 left-0 right-0 m-auto">
             < BottomMenu currentPage='HomePage' />
           </div>
         </main>
 
         {
-          !isMobile && <aside className={`bg-[#F2F2F2] w-[25%] h-full`}>
-            &nbsp;
+          !isMobile && <aside className={`bg-[#F2F2F2] w-[25%] h-[90vh] overflow-y-auto`}>
+            {/* &nbsp; */}
+            <QuestionThread question={questions[0]} />
           </aside>
         }
       </div>

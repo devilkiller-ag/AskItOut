@@ -8,7 +8,8 @@ import FemaleAvatar3 from './FemaleAvatar3.png';
 import FemaleAvatar4 from './FemaleAvatar4.png';
 import DefaultAvatar from './DefaultAvatar.png';
 
-export {
+const AvtarArray = [
+    DefaultAvatar,
     MaleAvatar1,
     MaleAvatar2,
     MaleAvatar3,
@@ -17,5 +18,6 @@ export {
     FemaleAvatar2,
     FemaleAvatar3,
     FemaleAvatar4,
-    DefaultAvatar
-};
+];
+
+export default AvtarArray;

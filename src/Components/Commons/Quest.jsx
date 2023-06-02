@@ -1,6 +1,6 @@
 import React from 'react';
-import SampleUserIcon from './../../Assets/images/DrawKitAvtars/FemaleAvatar1.png'
-import FlashCountIcon from './../../Assets/images/Icons/FlashCounts.png'
+import FlashCountIcon from './../../Assets/images/Icons/FlashCounts.png';
+import AvatarArray from './../../Assets/images/DrawKitAvtars';
 import { fetchUser } from '../../utils';
 
 const Quest = ({ question }) => {
@@ -11,7 +11,7 @@ const Quest = ({ question }) => {
         <div className='flex flex-col px-4 py-5 rounded-[30px] max-w-[300px] sm:max-w-[500px] max-h-[800px] bg-white shadow-lg gap-2'>
             <div className="header flex items-center justify-between">
                 <div className="solverDetail flex items-center justify-center gap-2">
-                    <img className='askerAvatar w-12 h-12 md:w-14 md:h-14' src={ SampleUserIcon } alt={`Username Icon`} width={1300} height={1300} />
+                    <img className='askerAvatar w-12 h-12 md:w-14 md:h-14' src={AvatarArray[asker.avtarIndex]} alt={`Username Icon`} width={1300} height={1300} />
                     <div className="details">
                         <div className="askerName text-base font-bold black whitespace-nowrap">{`${ asker.firstName } ${ asker.lastName }`}</div>
                         <div className="questCategory text-xs text-[#A8A8A8] whitespace-nowrap">

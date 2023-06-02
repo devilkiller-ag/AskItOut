@@ -6,13 +6,14 @@ const fetchUser = (userId) => {
     return {
         "firstName": "Rajendra",
         "lastName": "Verma",
-        "avtarIndex": 1,
+        "avtarIndex": 2,
         "email": "rajendra.v@xyz.com",
         "password": "rajven",
         "about": "Noob Rustcean",
         "tags": ["Rust", "JavScript", "Python"],
         "viewedProfile": 210,
-        "impressions": 312
+        "impressions": 312,
+        userLevel
     }
 }
 
