@@ -37,11 +37,11 @@ export default function Home() {
       <div id="home_header" className={`${isMobile ? '' : 'fixed top-0 z-20'} w-full h-16 px-4`}>
         {
           isMobile ?
-            <TopMenu currentPage='home' fromPage='home' toPage='home' />
+            <TopMenu currentPage='home' fromPage='home' />
             :
             <div className='flex justify-between items-center'>
               <div className='text-2xl font-semibold'>AskItOut</div>
-              <TopMenu currentPage='home' fromPage='home' toPage='home' />
+              <TopMenu currentPage='home' fromPage='home' />
             </div>
         }
       </div>

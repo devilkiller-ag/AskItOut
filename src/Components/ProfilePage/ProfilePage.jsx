@@ -33,11 +33,11 @@ const ProfilePage = () => {
             <div id="profile_header" className={`${isMobile ? '' : 'fixed top-0 z-20'} w-full h-16 px-4 bg-[#F2F2F2]`}>
                 {
                     isMobile ?
-                        <TopMenu currentPage='profile' fromPage='home' toPage='profile' />
+                        <TopMenu currentPage='profile' fromPage='home' />
                         :
                         <div className='flex justify-between items-center'>
                             <div className='text-2xl font-semibold'>AskItOut</div>
-                            <TopMenu currentPage='profile' fromPage='home' toPage='profile' />
+                            <TopMenu currentPage='profile' fromPage='home' />
                         </div>
                 }
             </div>

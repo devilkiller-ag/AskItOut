@@ -10,6 +10,8 @@ import { Welcome1, Welcome2, Welcome3 } from './Components/Welcome';
 import AskQuestion from "./Components/AskPage/AskQuestion";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
 import ErrorPage from "./Components/ErrorPage";
+import SavedQuestionsPage from "./Components/SavedQuestionsPage";
+import MyQuestionsPage from "./Components/MyQuestionsPage";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route exact path='/welcome3' element={ <Welcome3 /> } />
           <Route exact path='/ask' element={ <AskQuestion /> } />
           <Route exact path='/profile' element={ <ProfilePage /> } />
+          <Route exact path='/saved' element={ <SavedQuestionsPage /> } />
+          <Route exact path='/myquestions' element={ <MyQuestionsPage /> } />
           <Route exact path='*' element={ <ErrorPage /> } />
         </Routes>
       </Router>

@@ -44,11 +44,11 @@ const QuestionThread = ({ question }) => {
                 isMobile && <div id="thread_header" className={`${isMobile ? '' : 'fixed top-0 z-20'} w-full h-16 px-4`}>
                     {
                         isMobile ?
-                            <TopMenu currentPage='thread' fromPage='home' toPage='thread' />
+                            <TopMenu currentPage='thread' fromPage='home' />
                             :
                             <div className='flex justify-between items-center'>
                                 <div className='text-2xl font-semibold'>AskItOut</div>
-                                <TopMenu currentPage='thread' fromPage='home' toPage='thread' />
+                                <TopMenu currentPage='thread' fromPage='home' />
                             </div>
                     }
                 </div>
