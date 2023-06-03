@@ -194,6 +194,19 @@ const fetchUser = (userId) => {
           }
     ]
 
+    const notifications = [
+      {
+        "message" : "This is a dummy notification.",
+        "date": 1685540407562
+      }, {
+        "message" : "This is a dummy notification.",
+        "date": 1685540407562
+      }, {
+        "message" : "This is a dummy notification.",
+        "date": 1685540407562
+      }
+    ]
+
     return {
         "firstName": "Rajendra",
         "lastName": "Verma",
@@ -207,7 +220,8 @@ const fetchUser = (userId) => {
         userLevel,
         graphData,
         savedQuestions,
-        myQuestions
+        myQuestions,
+        notifications
     }
 }
 

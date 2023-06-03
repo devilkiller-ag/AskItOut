@@ -12,6 +12,7 @@ import ProfilePage from "./Components/ProfilePage/ProfilePage";
 import ErrorPage from "./Components/ErrorPage";
 import SavedQuestionsPage from "./Components/SavedQuestionsPage";
 import MyQuestionsPage from "./Components/MyQuestionsPage";
+import NotificationPage from "./Components/NotificationPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path='/profile' element={ <ProfilePage /> } />
           <Route exact path='/saved' element={ <SavedQuestionsPage /> } />
           <Route exact path='/myquestions' element={ <MyQuestionsPage /> } />
+          <Route exact path='/notifications' element={ <NotificationPage /> } />
           <Route exact path='*' element={ <ErrorPage /> } />
         </Routes>
       </Router>
