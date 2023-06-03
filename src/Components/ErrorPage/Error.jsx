@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 const Error = () => {
   return (
-    <div id="error" className="w-full h-[100vh] flex flex-col justify-center items-center">
+    <div id="error" className="w-full h-[100vh] flex flex-col justify-center items-center p-4">
       <div>
         <span className="text-[140px]">4</span><span className="text-[180px]">0</span><span className="text-[140px]">4</span>
       </div>

@@ -26,6 +26,15 @@ const TopMenu = ({ currentPage, fromPage }) => {
     // FETCH USER
     const user = fetchUser(1);
 
+    // PAGE NAME
+    const pageName = {
+        'home': 'Home',
+        'saved': 'Saved Questions',
+        'thread': 'Question Thread',
+        'myquestions': 'My Questions',
+        'profile': 'My Profile'
+    }
+
     return (
         <div id='topmenu' className={`${isMobile ? 'w-full' : 'w-[360px]'} h-16 flex justify-between items-center`}>
             <div id="left_topmenu">
@@ -33,15 +42,18 @@ const TopMenu = ({ currentPage, fromPage }) => {
                     currentPage === 'home' ?
                         <div id="username" className='text-xl text-center'>{isMobile ? user.firstName : `${user.firstName} ${user.lastName}`}</div>
                         :
-                        <NavLink to={`/${fromPage == 'home' ? '' : fromPage}`}>
-                            <div id='backbutton' className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="20" cy="20" r="20" fill="white" />
-                                    <path d="M12.9998 19L27.9998 18.9998" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M16.9998 13.9999L12.7069 18.2928C12.3736 18.6261 12.2069 18.7928 12.2069 18.9999C12.2069 19.207 12.3736 19.3737 12.7069 19.707L16.9998 23.9999" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </div>
-                        </NavLink>
+                        <div className='flex justify-center items-center gap-2'>
+                            <NavLink to={`/${fromPage == 'home' ? '' : fromPage}`}>
+                                <div id='backbutton' className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="20" cy="20" r="20" fill="white" />
+                                        <path d="M12.9998 19L27.9998 18.9998" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M16.9998 13.9999L12.7069 18.2928C12.3736 18.6261 12.2069 18.7928 12.2069 18.9999C12.2069 19.207 12.3736 19.3737 12.7069 19.707L16.9998 23.9999" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                            </NavLink>
+                            <div id="pageName" className='text-xl text-center'>{currentPage === 'profile' ?'' : pageName[currentPage]}</div>
+                        </div>
                 }
             </div>
 
