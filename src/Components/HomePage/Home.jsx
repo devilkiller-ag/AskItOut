@@ -72,7 +72,7 @@ export default function Home() {
             <div className="text-2xl font-medium pb-2 px-4 w-full">
               Top Quests
             </div>
-            <div id='questList' className='flex flex-col items-center pt-4 gap-4  w-full'>
+            <div id='questList' className={`flex flex-col items-center pt-4 gap-4  w-full ${isMobile ? 'pb-[80px]' : ''}`}>
               {
                 questions.map((question, key) => (
                   <Quest question={question} key={key} />
