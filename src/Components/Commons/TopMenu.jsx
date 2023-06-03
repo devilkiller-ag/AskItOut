@@ -43,7 +43,7 @@ const TopMenu = ({ currentPage, fromPage }) => {
                         <div id="username" className='text-xl text-center'>{isMobile ? user.firstName : `${user.firstName} ${user.lastName}`}</div>
                         :
                         <div className='flex justify-center items-center gap-2'>
-                            <NavLink to={`/${fromPage == 'home' ? '' : fromPage}`}>
+                            <NavLink to={`/${fromPage === 'home' ? '' : fromPage}`}>
                                 <div id='backbutton' className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
                                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="20" cy="20" r="20" fill="white" />
