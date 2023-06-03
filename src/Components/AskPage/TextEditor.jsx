@@ -87,8 +87,8 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className='menubar flex items-center bg-white h-[46px] my-2 px-2 gap-2 rounded-[10px] overflow-x-scroll relative'>
-      <div className="group-history h-7 flex items-center">
+    <div id='menubar' className='flex items-center bg-white h-[46px] my-2 px-2 gap-2 rounded-[10px] overflow-x-scroll relative'>
+      <div id='group-history' className="h-7 flex items-center">
         <button
           className="cursor-pointer"
           onClick={() => editor.chain().focus().undo().run()}
@@ -371,7 +371,7 @@ const TextEditor = () => {
   })
 
   return (
-    <div className='w-full h-screen bg-[#f2f2f2] p-4'>
+    <div className='w-full h-[82vh] bg-[#f2f2f2] p-4'>
       <MenuBar editor={editor} />
       <EditorContent editor={editor} /> 
     </div>

@@ -33,7 +33,8 @@ const TopMenu = ({ currentPage, fromPage }) => {
         'thread': 'Question Thread',
         'myquestions': 'My Questions',
         'profile': 'My Profile',
-        'notifications': 'Notifications'
+        'notifications': 'Notifications',
+        'ask': 'Ask Question'
     }
 
     return (

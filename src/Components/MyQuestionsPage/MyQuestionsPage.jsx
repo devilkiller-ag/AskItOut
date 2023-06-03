@@ -52,7 +52,7 @@ const MyQuestionsPage = () => {
                     </div>
 
                     <div id='bottomMenu' className="z-50 flex items-center justify-center absolute bottom-0 left-0 right-0 m-auto">
-                        < BottomMenu currentPage='HomePage' />
+                        < BottomMenu currentPage='QuestionPage' />
                     </div>
                 </main>
             </div>
