@@ -23,7 +23,7 @@ export default function Welcome1() {
           </svg>
         </div>
 
-        <Link to='/signup' className='bg-black w-[60px] h-[60px] rounded-full flex justify-center items-center absolute'>
+        <Link to='/' className='bg-black w-[60px] h-[60px] rounded-full flex justify-center items-center absolute'>
           <button>
             <span className='text-white text-2xl font-semibold '>Go</span>
           </button>

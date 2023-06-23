@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BottomMenu, TopMenu } from '../Commons';
 import Notification from './Notification';
-import { fetchUser } from '../../utils';
+import { fetchUser } from '../../api';
 
 const NotificationPage = () => {
     // MOBILE OR DESKTOP?

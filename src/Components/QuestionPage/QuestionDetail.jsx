@@ -7,7 +7,7 @@ const QuestionDetail = ({ questionBody }) => {
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded, collapsedHeight: 42 })
 
     return (
-        <div className='flex flex-col px-4 py-5 rounded-[30px] max-w-[300px] sm:max-w-[400px] max-h-[800px] bg-white shadow-lg gap-2'>
+        <div className='flex flex-col px-4 py-5 rounded-[30px] w-[90%] sm:w-[400px] max-h-[800px] bg-white shadow-lg gap-2'>
             <div className="header flex items-center justify-between">
                 <div className='title flex items-center gap-2'>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@ const QuestionDetail = ({ questionBody }) => {
                 </div>
             </div>
 
-            <div className="question text-sm font-base black px-8"{...getCollapseProps()}>{ isExpanded ? questionBody : questionBody.substring(0, 150) }</div>
+            <div className="question text-sm font-base black px-8"{...getCollapseProps()} dangerouslySetInnerHTML={ isExpanded ? { __html: questionBody } : { __html: questionBody.substring(0, 150) } }></div>
 
             <div className='expand flex item-center justify-end cursor-pointer' {...getToggleProps({
                 onClick: () => setExpanded((prevExpanded) => !prevExpanded),

@@ -1,7 +1,7 @@
 /* Basic editor styles */
 .ProseMirror {
     background-color: #fff;
-    height: 70vh;
+    height: 60vh;
     border-radius: 10px;
     padding: 10px;
     overflow-y: scroll;
@@ -180,4 +180,12 @@
 
 .ProseMirror pre .hljs-strong {
   font-weight: 700;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
 }

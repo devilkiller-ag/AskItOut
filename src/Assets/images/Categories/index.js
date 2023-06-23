@@ -10,6 +10,8 @@ import PythonIcon from './Python_Icon.png';
 import AiMlIcon from './AI_ML_Icon.png';
 import QuantumComputingIcon from './Quantum_Computing_Icon.png';
 
+import DefaultCategoryIcon from './Default_Category_Icon.png';
+
 
 
 const CategoryList = [
@@ -40,6 +42,9 @@ const CategoryList = [
     }, {
         "name": "React",
         "icon": ReactIcon
+    }, {
+        "name": "Default",
+        "icon": DefaultCategoryIcon
     }
 ]
 

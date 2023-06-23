@@ -13,8 +13,19 @@ import ErrorPage from "./Components/ErrorPage";
 import SavedQuestionsPage from "./Components/SavedQuestionsPage";
 import MyQuestionsPage from "./Components/MyQuestionsPage";
 import NotificationPage from "./Components/NotificationPage";
+import QuestionThread from "./Components/QuestionPage";
+
+import { useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import { fetchAllQuestions } from "./actions/question";
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllQuestions());
+  }, [dispatch]);
+
   return (
     <>
       <Router>
@@ -26,7 +37,8 @@ function App() {
           <Route exact path='/welcome2' element={ <Welcome2 /> } />
           <Route exact path='/welcome3' element={ <Welcome3 /> } />
           <Route exact path='/ask' element={ <AskQuestion /> } />
-          <Route exact path='/profile' element={ <ProfilePage /> } />
+          <Route exact path='/questions/:id' element={ <QuestionThread /> } />
+          <Route exact path='/profile/' element={ <ProfilePage /> } />
           <Route exact path='/saved' element={ <SavedQuestionsPage /> } />
           <Route exact path='/myquestions' element={ <MyQuestionsPage /> } />
           <Route exact path='/notifications' element={ <NotificationPage /> } />

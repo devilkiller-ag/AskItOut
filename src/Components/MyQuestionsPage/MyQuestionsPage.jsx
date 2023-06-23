@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BottomMenu, TopMenu } from '../Commons';
 import Quest from '../Commons/Quest';
-import { fetchUser } from '../../utils';
+import { fetchUser } from '../../api';
 
 const MyQuestionsPage = () => {
     // MOBILE OR DESKTOP?

@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
-import { fetchUser } from './../../utils';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentUser } from '../../actions/currentUser';
 import { BottomMenu, TopMenu } from '../Commons';
 import AvatarArray from './../../Assets/images/DrawKitAvtars';
 import { UserBadgeIcon } from './../../Assets/images/Icons';
 import Analytics from './Analytics';
+import { fetchUser } from '../../api';
 
 const ProfilePage = () => {
 
@@ -27,7 +30,22 @@ const ProfilePage = () => {
     }, [])
 
     // FETCH USER DATA
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const fetchedUser = useSelector((state) => (state.currentUserReducer));
+    if (fetchedUser === null) {
+        navigate('/login');
+    }
+    // const user = fetchedUser["result"];
+
+    useEffect(() => {
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
+    }, [dispatch])
+
+    // console.log(user);
     const user = fetchUser(1);
+
     return (
         <div className='bg-[#F2F2F2] w-full h-full'>
             <div id="profile_header" className={`${isMobile ? '' : 'fixed top-0 z-20'} w-full h-16 px-4 bg-[#F2F2F2]`}>
@@ -42,7 +60,7 @@ const ProfilePage = () => {
                 }
             </div>
 
-            <div id="profile_body" className={`${isMobile ? '' : 'pt-16'} flex flex-col justify-center items-start w-full h-full`}>
+            <div id="profile_body" className={`${isMobile ? '' : 'pt-16'} flex flex-col justify-center items-center w-full h-full`}>
                 <div id="profile_info" className='px-4 flex flex-col'>
                     <div className='flex justify-between items-center'>
                         <div id="profile_pic" className='w-[80px] h-[80px] rounded-full'>
