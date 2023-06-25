@@ -61,7 +61,7 @@ const TopMenu = ({ currentPage, fromPage }) => {
             <div id="left_topmenu">
                 {
                     currentPage === 'home' ?
-                        <div id="username" className='text-xl text-center'>{isMobile ? user.firstName : `${user.firstName} ${user.lastName}`}</div>
+                        <div id="username" className='text-xl text-center'>{isMobile ? `${ user ? user.firstName : '' }` : `${ user ? user.firstName : '' } ${ user ? user.lastName : '' }`}</div>
                         :
                         <div className='flex justify-center items-center gap-2'>
                             <NavLink to={`/${fromPage === 'home' ? '' : fromPage}`}>
