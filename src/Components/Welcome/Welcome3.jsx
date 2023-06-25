@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Welcome_image_3 from '../../Assets/images/Welcome/Welcome_image_3.png';
 

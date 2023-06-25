@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { BottomMenu, TopMenu } from '../Commons';
 import Notification from './Notification';
 import { fetchUser } from '../../api';
@@ -34,7 +35,7 @@ const NotificationPage = () => {
                         <TopMenu currentPage='notifications' fromPage='home' />
                         :
                         <div className='flex justify-between items-center'>
-                            <div className='text-2xl font-semibold'>AskItOut</div>
+                            <NavLink to={'/'}><div className='text-2xl font-semibold'>AskItOut</div></NavLink>
                             <TopMenu currentPage='notifications' fromPage='home' />
                         </div>
                 }

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { fetchUser } from '../../api';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentUser } from '../../actions/currentUser';
 import { NavLink } from 'react-router-dom';
 
 const TopMenu = ({ currentPage, fromPage }) => {
 
-    // MOBILE OR DESKTOP?
+    /**
+     * MOBILE OR DESKTOP?
+     */
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -23,10 +27,24 @@ const TopMenu = ({ currentPage, fromPage }) => {
         return () => window.removeEventListener('resize', handleResize);
     }, [])
 
-    // FETCH USER
-    const user = fetchUser(1);
+    /**
+     * USER INFO
+     */
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const fetchedUser = useSelector((state) => (state.currentUserReducer));
+    if (fetchedUser === null) {
+        navigate('/login');
+    }
+    let user = null;
+    useEffect(() => {
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
+    }, [dispatch])
+    user = fetchedUser ? fetchedUser.result : null;
 
-    // PAGE NAME
+    /**
+     * PAGE NAME
+     */
     const pageName = {
         'home': 'Home',
         'saved': 'Saved Questions',
@@ -87,7 +105,7 @@ const TopMenu = ({ currentPage, fromPage }) => {
                                 <path d="M20 25C20 24.0681 20 23.6022 20.1522 23.2346C20.3552 22.7446 20.7446 22.3552 21.2346 22.1522C21.6022 22 22.0681 22 23 22C23.9319 22 24.3978 22 24.7654 22.1522C25.2554 22.3552 25.6448 22.7446 25.8478 23.2346C26 23.6022 26 24.0681 26 25C26 25.9319 26 26.3978 25.8478 26.7654C25.6448 27.2554 25.2554 27.6448 24.7654 27.8478C24.3978 28 23.9319 28 23 28C22.0681 28 21.6022 28 21.2346 27.8478C20.7446 27.6448 20.3552 27.2554 20.1522 26.7654C20 26.3978 20 25.9319 20 25Z" stroke="#2A353D" strokeWidth="1.5" />
                             </svg>
                             :
-                            <NavLink to="/profile">
+                            <NavLink to={`/users/${user?._id}`}>
                                 <svg id='profile' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="#2A353D" strokeWidth="1.5" />

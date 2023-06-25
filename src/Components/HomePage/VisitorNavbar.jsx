@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const VisitorNavbar = () => {
 
@@ -27,7 +27,7 @@ const VisitorNavbar = () => {
             <div className='flex justify-start items-center'>
                 <div id="Title" className='flex justify-center items-center pr-10 md:pr-14 lg:pr-32'>
                     <div id="logo"></div>
-                    <div id="name" className='text-[20px] font-bold'>AskItOut</div>
+                    <NavLink><div id="name" className='text-[20px] font-bold'>AskItOut</div></NavLink>
                 </div>
                 <div className={`${isMobile ? 'hidden' : 'flex justify-center items-center gap-10 lg:gap-14 text-base font-extralight text-[#cecece]'}`}>
                     <div className='hover:text-white'>Home</div>
@@ -37,7 +37,7 @@ const VisitorNavbar = () => {
                 </div>
             </div>
             <div className='h-[60px] flex justify-center items-center'>
-                <Link to="/login" className='text-[#000000] visited:text-[#0090FC]'>
+                <Link to="/login" className='text-[#000000] visited:text-[#487faa]'>
                     <div className='bg-white hover:bg-slate-100 px-5 py-2 rounded-md'>
                         Sign In
                     </div>

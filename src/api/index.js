@@ -1,7 +1,4 @@
 import fetchUser from "./fetchUser";
-import fetchQuestion from "./fetchQuestion";
-import fetchQuestions from "./fetchQuestions";
-import getDate from "./getDate";
 import axios from "axios";
 
 const API = axios.create({ baseURL: "http://localhost:5000" });
@@ -52,11 +49,16 @@ const voteAnswerAPI = (questionId, answerId, value) => {
   return API.patch(`/answer/vote/${questionId}`, { answerId, value })
 }
 
+const getAllUsers = () => {
+  return API.get("/user/getAllUsers")
+}
+
+const updateProfile = (id, updateData) => {
+  return API.patch(`/user/update/${id}`, updateData)
+}
+
 export {
   fetchUser,
-  fetchQuestion,
-  fetchQuestions,
-  getDate,
   logIn,
   signUp,
   postQuestion,
@@ -66,4 +68,6 @@ export {
   postAnswer,
   deleteAnswer,
   voteAnswerAPI,
+  getAllUsers,
+  updateProfile
 };

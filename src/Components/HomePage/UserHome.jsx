@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentUser } from '../../actions/currentUser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './../../styles/HomePage/HomePage.css';
 // Sample Search Data for Books
-import BookData from '../../Assets/data/SampleData.json';
+import BookData from '../../Assets/DummyData/SampleData.json';
 import Quest from '../Commons/Quest';
 import { BottomMenu, SearchBar, TopMenu } from '../Commons';
 import Categories from './Categories';
-import { getDate } from '../../api';
+import { getDate } from './../../utils';
 
 export default function UserHome() {
 
@@ -34,6 +36,19 @@ export default function UserHome() {
   }, [])
 
   /**
+  * FETCH USER DATA
+  */
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const fetchedUser = useSelector((state) => (state.currentUserReducer));
+  if (fetchedUser === null) {
+    navigate('/login');
+  }
+  useEffect(() => {
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
+  }, [dispatch])
+
+  /**
   * TOAST NOTIFICATION MESSAGE
   */
   const [alertMessage, setAlertMessage] = useState('');
@@ -53,7 +68,7 @@ export default function UserHome() {
   }, [alertMessage, setAlertMessage])
 
   /**
-   *  Pass the question category. Ex.: "java", "aiml", "python", ... ,"all" for random questions for all categories
+   *  FETCH ALL QUESTIONS
   */
   const questionsList = useSelector((state) => state.questionsReducer);
   const questions = questionsList.data;
@@ -78,7 +93,7 @@ export default function UserHome() {
             <TopMenu currentPage='home' fromPage='home' />
             :
             <div className='flex justify-between items-center'>
-              <div className='text-2xl font-semibold'>AskItOut</div>
+              <NavLink to={'/'}><div className='text-2xl font-semibold'>AskItOut</div></NavLink>
               <TopMenu currentPage='home' fromPage='home' />
             </div>
         }

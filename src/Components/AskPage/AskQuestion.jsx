@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '../../actions/currentUser';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { askQuestion } from '../../actions/question';
 import TextEditor from "../Commons/TextEditor";
@@ -116,7 +116,7 @@ const AskQuestion = () => {
                         <TopMenu currentPage='ask' fromPage='home' />
                         :
                         <div className='flex justify-between items-center'>
-                            <div className='text-2xl font-semibold'>AskItOut</div>
+                            <NavLink to={'/'}><div className='text-2xl font-semibold'>AskItOut</div></NavLink>
                             <TopMenu currentPage='ask' fromPage='home' />
                         </div>
                 }

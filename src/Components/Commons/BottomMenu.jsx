@@ -49,7 +49,7 @@ const BottomMenu = (props) => {
     }
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
   }, [dispatch])
-  user = fetchedUser.result;
+  user = fetchedUser ? fetchedUser.result : null;
 
   /**
    * HANDLE LOGOUT REQUEST

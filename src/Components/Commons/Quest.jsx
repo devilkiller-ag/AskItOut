@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import copy from 'copy-to-clipboard';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '../../actions/currentUser';
 import { voteQuestion } from '../../actions/question';
 import FlashCountIcon from './../../Assets/images/Icons/FlashCounts.png';
 import AvatarArray from './../../Assets/images/DrawKitAvtars';
-import { fetchUser } from '../../api';
 
 const Quest = ({ question, notify }) => {
 
@@ -20,7 +19,7 @@ const Quest = ({ question, notify }) => {
     useEffect(() => {
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
     }, [dispatch])
-    user = fetchedUser.result;
+    user = fetchedUser ? fetchedUser.result : null;
 
 
     /**
@@ -46,7 +45,11 @@ const Quest = ({ question, notify }) => {
         dispatch(voteQuestion(questionId, 'upVote'));
     }
 
-    const asker = fetchUser(question.userId);
+    /**
+     * ASKER DATA
+     */
+    const usersList = useSelector((state) => (state.usersReducer));
+    const asker = (usersList.filter((user) => user._id === question.userId))[0];
 
     /**
      * Show if user has flashed the question or not
@@ -62,9 +65,9 @@ const Quest = ({ question, notify }) => {
         <div className='flex flex-col px-4 py-5 rounded-[30px] w-[300px] sm:w-[500px] max-h-[800px] bg-white shadow-lg gap-2'>
             <div className="header flex items-center justify-between">
                 <div className="solverDetail flex items-center justify-center gap-2">
-                    <img className='askerAvatar w-12 h-12 md:w-14 md:h-14' src={AvatarArray[asker.avtarIndex]} alt={`Username Icon`} width={1300} height={1300} />
+                    <NavLink to={`/users/${question?.userId}`}><img className='askerAvatar w-12 h-12 md:w-14 md:h-14' src={AvatarArray[asker.avtarIndex]} alt={`Username Icon`} width={1300} height={1300} /></NavLink>
                     <div className="details">
-                        <div className="askerName text-base font-bold black whitespace-nowrap">{`${question.userPosted}`}</div>
+                        <NavLink to={`/users/${question?.userId}`}><div className="askerName text-base font-bold black whitespace-nowrap">{`${question.userPosted}`}</div></NavLink>
                         <div className="questCategory text-xs text-[#A8A8A8] whitespace-nowrap">
                             {question.questionTags[0]}
                         </div>

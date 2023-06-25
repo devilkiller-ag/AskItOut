@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentUser } from '../../actions/currentUser';
 import { BottomMenu, TopMenu } from '../Commons';
 import Quest from '../Commons/Quest';
-import { fetchUser } from '../../api';
 
 const MyQuestionsPage = () => {
-    // MOBILE OR DESKTOP?
+
+    /**
+     * MOBILE OR DESKTOP?
+     */
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -23,7 +28,33 @@ const MyQuestionsPage = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, [])
 
-    const questions = fetchUser(1).myQuestions;
+    /**
+     *  FETCH ALL QUESTIONS
+     */
+    const questionsList = useSelector((state) => state.questionsReducer);
+    const questions = questionsList ? questionsList.data : [];
+
+    /**
+     * FETCH USER DATA
+     */
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const fetchedUser = useSelector((state) => (state.currentUserReducer));
+    if (fetchedUser === null) {
+        navigate('/login');
+    }
+    let user = null;
+    useEffect(() => {
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
+    }, [dispatch])
+    user = fetchedUser ? fetchedUser.result : null;
+
+    // GET ALL MY QUESTIONS FROM QUESTIONS
+    let myQuestions = [];
+    if (user && questions) {
+        const myQuestionsId = user.myQuestions || [];
+        myQuestions = questions.filter(question => myQuestionsId.includes(question._id));
+    }
 
     return (
         <div className='bg-[#F2F2F2] w-full h-full'>
@@ -33,7 +64,7 @@ const MyQuestionsPage = () => {
                         <TopMenu currentPage='myquestions' fromPage='home' />
                         :
                         <div className='flex justify-between items-center'>
-                            <div className='text-2xl font-semibold'>AskItOut</div>
+                            <NavLink to={'/'}><div className='text-2xl font-semibold'>AskItOut</div></NavLink>
                             <TopMenu currentPage='myquestions' fromPage='home' />
                         </div>
                 }
@@ -44,7 +75,7 @@ const MyQuestionsPage = () => {
                     <div id='feedArea' className={`bg-[#F2F2F2] flex flex-col py-2`}>
                         <div id='questList' className='flex flex-col items-center pt-4 gap-4  w-full'>
                             {
-                                questions.map((question, key) => (
+                                myQuestions.map((question, key) => (
                                     <Quest question={question} key={key} />
                                 ))
                             }

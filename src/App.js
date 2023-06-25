@@ -18,12 +18,15 @@ import QuestionThread from "./Components/QuestionPage";
 import { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { fetchAllQuestions } from "./actions/question";
+import { fetchAllUsers } from "./actions/users";
+import UpdateProfile from "./Components/ProfilePage/UpdateProfile";
 
 function App() {
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllQuestions());
+    dispatch(fetchAllUsers());
   }, [dispatch]);
 
   return (
@@ -38,7 +41,8 @@ function App() {
           <Route exact path='/welcome3' element={ <Welcome3 /> } />
           <Route exact path='/ask' element={ <AskQuestion /> } />
           <Route exact path='/questions/:id' element={ <QuestionThread /> } />
-          <Route exact path='/profile/' element={ <ProfilePage /> } />
+          <Route exact path='/users/:id' element={ <ProfilePage /> } />
+          <Route exact path="/users/edit/:id" element={ <UpdateProfile /> } />
           <Route exact path='/saved' element={ <SavedQuestionsPage /> } />
           <Route exact path='/myquestions' element={ <MyQuestionsPage /> } />
           <Route exact path='/notifications' element={ <NotificationPage /> } />

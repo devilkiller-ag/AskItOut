@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '../../actions/currentUser';
 import { writeAnswer } from '../../actions/question';
@@ -11,7 +11,7 @@ import AvatarArray from './../../Assets/images/DrawKitAvtars';
 import QuestionHead from './QuestionHead';
 import QuestionDetail from './QuestionDetail';
 import Answer from './Answer';
-import { fetchUser, getDate } from './../../api';
+import { getDate } from './../../utils';
 
 const QuestionThread = () => {
 
@@ -61,8 +61,12 @@ const QuestionThread = () => {
     const { id } = useParams();
     const questionsList = useSelector((state) => state.questionsReducer);
     const questions = questionsList.data;
-
-    const asker = fetchUser(1);
+    
+    /**
+     * ASKER DATA
+     */
+    const usersList = useSelector((state) => (state.usersReducer));
+    // const asker = (usersList.filter((user) => user._id === question.userId))[0];
 
     /**
      * HANDLE SEE ALL ANSWERS
@@ -145,7 +149,7 @@ const QuestionThread = () => {
                             <TopMenu currentPage='thread' fromPage='home' />
                             :
                             <div className='flex justify-between items-center'>
-                                <div className='text-2xl font-semibold'>AskItOut</div>
+                                <NavLink to={'/'}><div className='text-2xl font-semibold'>AskItOut</div></NavLink>
                                 <TopMenu currentPage='thread' fromPage='home' />
                             </div>
                     }
@@ -171,11 +175,13 @@ const QuestionThread = () => {
                                         <main key={question._id} className={`${isMobile ? 'h-full w-full' : 'h-[91vh]w-[50%] pb-[96px]'} flex flex-col justify-start items-center`}>
                                             <div id='asker_header' className={`w-full flex justify-between items-center px-4 py-4`}>
                                                 <div id='askerDetails' className="flex items-center justify-center gap-2">
-                                                    <div className="askerAvatar w-12 h-12 md:w-14 md:h-14">
-                                                        <img src={AvatarArray[asker.avtarIndex]} alt="Asker Avatar" />
-                                                    </div>
+                                                    <NavLink to={`/users/${question?.userId}`}>
+                                                        <div className="askerAvatar w-12 h-12 md:w-14 md:h-14">
+                                                            <img src={AvatarArray[(usersList.filter((user) => user._id === question.userId))[0].avtarIndex]} alt="Asker Avatar" />
+                                                        </div>
+                                                    </NavLink>
                                                     <div className='flex flex-col justify-center'>
-                                                        <div className="askerName text-base font-bold black">{`${question.userPosted}`}</div>
+                                                        <NavLink to={`/users/${question?.userId}`}><div className="askerName text-base font-bold black">{`${question.userPosted}`}</div></NavLink>
                                                         <div className="questCategory text-xs text-[#A8A8A8]">{question.questionTags[0]}</div>
                                                     </div>
                                                 </div>
