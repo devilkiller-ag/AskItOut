@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import copy from 'copy-to-clipboard';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '../../actions/currentUser';
-import copy from 'copy-to-clipboard';
 import FlashCountIcon from './../../Assets/images/Icons/FlashCounts.png';
 import { deleteMyQuestion, voteQuestion } from '../../actions/question';
-
+import { BASE_URL } from '../../utils';
 
 const QuestionHead = ({ question, notify }) => {
 
@@ -25,7 +25,7 @@ const QuestionHead = ({ question, notify }) => {
      * HANDLE SHARE
      */
     const location = useLocation();
-    const url = "http://localhost:3000"
+    const url = BASE_URL;
     const handleShare = () => {
         copy(url + location.pathname);
         notify("Link copied successfully!");

@@ -6,6 +6,7 @@ import { setCurrentUser } from '../../actions/currentUser';
 import { voteQuestion } from '../../actions/question';
 import FlashCountIcon from './../../Assets/images/Icons/FlashCounts.png';
 import AvatarArray from './../../Assets/images/DrawKitAvtars';
+import { BASE_URL } from './../../utils';
 
 const Quest = ({ question, notify }) => {
 
@@ -25,7 +26,8 @@ const Quest = ({ question, notify }) => {
     /**
      * HANDLE SHARE
      */
-    const url = "http://localhost:3000/questions/";
+    const BASEURL = BASE_URL;
+    const url = `${BASEURL}/questions/`;
     const handleShare = () => {
         copy(url + question._id);
         notify("Link copied successfully!");
@@ -65,7 +67,7 @@ const Quest = ({ question, notify }) => {
         <div className='flex flex-col px-4 py-5 rounded-[30px] w-[300px] sm:w-[500px] max-h-[800px] bg-white shadow-lg gap-2'>
             <div className="header flex items-center justify-between">
                 <div className="solverDetail flex items-center justify-center gap-2">
-                    <NavLink to={`/users/${question?.userId}`}><img className='askerAvatar w-12 h-12 md:w-14 md:h-14' src={AvatarArray[asker.avtarIndex]} alt={`Username Icon`} width={1300} height={1300} /></NavLink>
+                    <NavLink to={`/users/${question?.userId}`}><img className='askerAvatar w-12 h-12 md:w-14 md:h-14' src={AvatarArray[asker ? asker.avtarIndex : 0]} alt={`Username Icon`} width={1300} height={1300} /></NavLink>
                     <div className="details">
                         <NavLink to={`/users/${question?.userId}`}><div className="askerName text-base font-bold black whitespace-nowrap">{`${question.userPosted}`}</div></NavLink>
                         <div className="questCategory text-xs text-[#A8A8A8] whitespace-nowrap">

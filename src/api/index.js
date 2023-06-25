@@ -1,7 +1,8 @@
 import fetchUser from "./fetchUser";
 import axios from "axios";
+import { SERVER_BASE_URL } from "../utils";
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({ baseURL: SERVER_BASE_URL });
 
 // SECURITY: ADD AUTH TOKEN TO EACH API REQUEST
 API.interceptors.request.use((req) => {

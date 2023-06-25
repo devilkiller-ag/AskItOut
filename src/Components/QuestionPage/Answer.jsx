@@ -6,6 +6,7 @@ import { setCurrentUser } from '../../actions/currentUser';
 import { deleteMyAnswer, voteAnswer } from '../../actions/question';
 import { getUserLevel } from './../../utils';
 import AvatarArray from './../../Assets/images/DrawKitAvtars';
+import { BASE_URL } from '../../utils';
 
 const Answer = ({ questionId, answer, numberOfAnswers, notify }) => {
     /**
@@ -24,7 +25,7 @@ const Answer = ({ questionId, answer, numberOfAnswers, notify }) => {
      * HANDLE SHARE
      */
     const location = useLocation();
-    const url = "http://localhost:3000"
+    const url = BASE_URL;
     const handleShare = () => {
         copy(url + location.pathname);
         notify("Link copied successfully!");
@@ -86,13 +87,13 @@ const Answer = ({ questionId, answer, numberOfAnswers, notify }) => {
     const solver = (usersList.filter((user) => user._id === solverId))[0];
     
     // Calculate Solver Level
-    const solverLevel = getUserLevel(solver.noOfQuestionsAsked, solver.noOfAnswersGiven);
+    const solverLevel = solver ? getUserLevel(solver.noOfQuestionsAsked, solver.noOfAnswersGiven) : '';
 
     return (
         <div className='flex flex-col px-4 py-5 rounded-[30px] w-[90%] sm:w-[400px] max-h-[800px] bg-white shadow-lg gap-2'>
             <div className="header flex items-center justify-between">
                 <div className="solverDetail flex items-center justify-center gap-2">
-                    <NavLink to={`/users/${answer?.userId}`}><img className='solverAvatar w-12 h-12 md:w-14 md:h-14' src={AvatarArray[solver.avtarIndex]} alt={`Solver Icon`} width={1300} height={1300} /></NavLink>
+                    <NavLink to={`/users/${answer?.userId}`}><img className='solverAvatar w-12 h-12 md:w-14 md:h-14' src={AvatarArray[solver ? solver.avtarIndex : 0]} alt={`Solver Icon`} width={1300} height={1300} /></NavLink>
                     <div className="details">
                         <NavLink to={`/users/${answer?.userId}`}><div className="solverName text-base font-bold black">{`${answer.userAnswered}`}</div></NavLink>
                         <div className="level flex items-center justify-start gap-1">

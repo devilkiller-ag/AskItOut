@@ -15,9 +15,9 @@ const Home = () => {
     return (
         <>
             {
-                user === null ?
-                    <VisitorHome />
-                :
+                // user === null ?
+                //     <VisitorHome />
+                // :
                     <UserHome />
             }
         </>

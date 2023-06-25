@@ -177,7 +177,7 @@ const QuestionThread = () => {
                                                 <div id='askerDetails' className="flex items-center justify-center gap-2">
                                                     <NavLink to={`/users/${question?.userId}`}>
                                                         <div className="askerAvatar w-12 h-12 md:w-14 md:h-14">
-                                                            <img src={AvatarArray[(usersList.filter((user) => user._id === question.userId))[0].avtarIndex]} alt="Asker Avatar" />
+                                                            <img src={AvatarArray[user ? (usersList.filter((user) => user._id === question.userId))[0].avtarIndex : 0]} alt="Asker Avatar" />
                                                         </div>
                                                     </NavLink>
                                                     <div className='flex flex-col justify-center'>
