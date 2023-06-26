@@ -185,13 +185,13 @@ export default function Signup() {
 
             <div className='flex flex-col mb-4 max-w-[132px] sm:max-w-[200px]'>
               <label htmlFor="lastName" className='text-sm font-semibold mb-2.5'>Last Name*</label>
-              <input type="text" id='lastName' name='lastName' placeholder='Malkova' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' onChange={(e) => { setLastName(e.target.value) }} />
+              <input type="text" id='lastName' name='lastName' placeholder='Rathi' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' onChange={(e) => { setLastName(e.target.value) }} />
             </div>
           </div>
 
           <div className='flex flex-col mb-4'>
             <label className='text-sm font-semibold mb-2.5' htmlFor="email">Email*</label>
-            <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' type="email" id='email' name='email' placeholder='natasha.malkova@outlook.com' onChange={(e) => { setEmail(e.target.value) }} />
+            <input className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' type="email" id='email' name='email' placeholder='natasha.rathi@outlook.com' onChange={(e) => { setEmail(e.target.value) }} />
           </div>
 
           <div className='flex flex-col mb-4'>
