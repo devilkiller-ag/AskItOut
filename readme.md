@@ -26,7 +26,7 @@ AskItOut is a doubt sharing website for educational institutions where students 
 - Icons by [HugeIcons](https://www.figma.com/file/sLyaPDH47I4mFaypraUjr1/168-Essential-Free-Icons-%7C-Hugeicons-Pro-%7C-10K%2B-Icons-(Community)?type=design&node-id=2%3A7&mode=design&t=w295KQ5K033NnWUp-1) and [React Icons](https://react-icons.github.io/react-icons/).
 - Categories Icon from [Icons8](https://icons8.com/).
 
-### Fronend]
+### Fronend
 - HTML, CSS, JS
 - React.js
 - Node.js
@@ -49,3 +49,31 @@ AskItOut is a doubt sharing website for educational institutions where students 
 - Web Design is created by [Ashmit JaiSarita Gupta](https://github.com/devilkiller-ag).
 - Frontend is developed by [Ashmit JaiSarita Gupta](https://github.com/devilkiller-ag).
 - Backend is developed by [Aryan Gupta](https://github.com/aryanguptaaa).
+
+# Development Guide
+## Available Scripts for Client
+
+In the client directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+## Available Scripts for Server
+
+In the server directory, you can run:
+
+### `npm run start`
+
+Runs the app in the development mode.\
+Open [http://localhost:5000](http://localhost:5000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+
+
