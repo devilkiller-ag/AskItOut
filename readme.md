@@ -9,14 +9,21 @@ AskItOut is a doubt sharing website for educational institutions where students 
 - The text editor for writing questions and answers was developed using TipTap. It has various editing features like headings, text color, bold, italic, qoutes, code, subscript, subscript, strikeout, underline, link, unordered list, ordered list, images, and many more features will be added soon.
 - User can flash, and share questions.
 - User can upvote or downvote answers.
+- Feature to detect and alert any unfilled field while posting questions, answers or signup.
+- User can add tags to their question.
 - User can delete questions and answers posted by them.
+- User can view questions posted or saved by them.
+- One answer among all answers posted for a question is marked as verified based on number of likes and dislikes.
 - Users are awarded trophies for 'Advanced', 'Intermediate', and 'Beginner' based on number of questions asked and answered. This encourages students in school to positively compete with each other and get a gamified learning experience.
 
 ## Upcomming Features
+- View questions based on categories on homepage
+- Search Questions posted by other users
 - Update Profile
 - Edit questions and answers after posting them
 - Save Questions
 - Notification about latest questions and answers
+- More robust algoirthm for user level, and for determining verified answer
 - Explore Page having trending blogs and post
 - Dark and Light Mode
 - AI based doubt solver in premium subscription
