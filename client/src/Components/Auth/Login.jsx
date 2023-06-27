@@ -77,7 +77,7 @@ export default function Login() {
           <p className='text-base font-medium mb-4 text-[#727986]'>Enter your details to log into your AskItOut Account:</p>
           <div className='flex flex-col mb-4'>
             <label htmlFor='email' className='text-sm font-semibold mb-2.5'>Email*</label>
-            <input id='email' name='email' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' type="text" placeholder='natasha.malkova@outlook.com' onChange={(e) => { setEmail(e.target.value) }} />
+            <input id='email' name='email' className='border hover:border-[#0090FC] p-2 rounded-[10px] text-sm font-light h-[30px] focus:outline-none' type="text" placeholder='natasha.rathi@outlook.com' onChange={(e) => { setEmail(e.target.value) }} />
           </div>
           <div className='flex flex-col mb-4 relative'>
             <label htmlFor='password' className='text-sm font-semibold mb-2.5'>Password*</label>
