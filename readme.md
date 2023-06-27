@@ -9,15 +9,17 @@ AskItOut is a doubt sharing website for educational institutions where students 
 - The text editor for writing questions and answers was developed using TipTap. It has various editing features like headings, text color, bold, italic, qoutes, code, subscript, subscript, strikeout, underline, link, unordered list, ordered list, images, and many more features will be added soon.
 - User can flash, and share questions.
 - User can upvote or downvote answers.
+- User can delete questions and answers posted by them.
 - Users are awarded trophies for 'Advanced', 'Intermediate', and 'Beginner' based on number of questions asked and answered. This encourages students in school to positively compete with each other and get a gamified learning experience.
 
 ## Upcomming Features
 - Update Profile
+- Edit questions and answers after posting them
 - Save Questions
 - Notification about latest questions and answers
-- Explore Page having trending blogs and post.
+- Explore Page having trending blogs and post
 - Dark and Light Mode
-- AI based doubt solver in premium subscription.
+- AI based doubt solver in premium subscription
 
 ## Techstack
 ### Web Design
@@ -55,7 +57,7 @@ AskItOut is a doubt sharing website for educational institutions where students 
 
 In the client directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
