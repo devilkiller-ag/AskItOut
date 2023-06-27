@@ -47,6 +47,11 @@ AskItOut is a doubt sharing website for educational institutions where students 
 - Dotenv
 - CORS
 
+### Deployment and Storage
+- Frontend: [Vercel](https://vercel.com/)
+- Database: [MongoDB Atlas](https://www.mongodb.com/atlas/database)
+- Backend: [Render](https://render.com/)
+
 ## Contributor
 - Web Design is created by [Ashmit JaiSarita Gupta](https://github.com/devilkiller-ag).
 - Frontend is developed by [Ashmit JaiSarita Gupta](https://github.com/devilkiller-ag).
