@@ -17,6 +17,7 @@ AskItOut is a doubt sharing website for educational institutions where students 
 - Users are awarded trophies for 'Advanced', 'Intermediate', and 'Beginner' based on number of questions asked and answered. This encourages students in school to positively compete with each other and get a gamified learning experience.
 
 ## Upcomming Features
+- Password Reset and Remember Me Feature
 - View questions based on categories on homepage
 - Search Questions posted by other users
 - Update Profile
