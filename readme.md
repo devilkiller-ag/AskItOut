@@ -45,7 +45,7 @@ AskItOut is a doubt sharing website for educational institutions where students 
 - Dotenv
 - CORS
 
-## Designer and Developer
+## Contributor
 - Web Design is created by [Ashmit JaiSarita Gupta](https://github.com/devilkiller-ag).
 - Frontend is developed by [Ashmit JaiSarita Gupta](https://github.com/devilkiller-ag).
 - Backend is developed by [Aryan Gupta](https://github.com/aryanguptaaa).
