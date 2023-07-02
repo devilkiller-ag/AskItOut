@@ -1,5 +1,11 @@
 import Home from './HomePage/Home';
 
+/**
+ * @component
+ * Main component responsible for rendering the main content.
+ * 
+ * @returns {JSX.Element} JSX element representing the main content.
+ */
 const Main = () => {
 
   return ( 
@@ -9,4 +15,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Main;

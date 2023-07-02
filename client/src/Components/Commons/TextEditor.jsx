@@ -18,7 +18,7 @@ import Dropcursor from '@tiptap/extension-dropcursor'
 import Subscript from '@tiptap/extension-subscript'
 import Superscript from '@tiptap/extension-superscript'
 
-/** Import Highlight Features for code block */
+// Import Highlight Features for code block 
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import css from 'highlight.js/lib/languages/css'
 import js from 'highlight.js/lib/languages/javascript'
@@ -32,24 +32,37 @@ lowlight.registerLanguage('css', css)
 lowlight.registerLanguage('js', js)
 lowlight.registerLanguage('ts', ts)
 
-// Using a Dictionary and map function on it for every dropbox to avoid code repition
+/**
+ * Using a Dictionary and map function on it for every dropdown
+ * to avoid code repetition.
+ */
 const TextStyleOptions = {
   'Normal text': [0, 'Normal text'],
   'h1': [1, `Heading 1`], // [heading level to pass in TipTap, svg Icon]
-  'h2': [2, 'Heading 2'],
-  'h3': [3, 'Heading 3'],
-  'h4': [4, 'Heading 4'],
-  'h5': [5, 'Heading 5'],
-  'h6': [6, 'Heading 6']
+  'h2': [2, `Heading 2`],
+  'h3': [3, `Heading 3`],
+  'h4': [4, `Heading 4`],
+  'h5': [5, `Heading 5`],
+  'h6': [6, `Heading 6`]
 }
 
+/**
+ * @component
+ * Menu bar component for the text editor.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.editor - The Tiptap editor instance.
+ * @returns {JSX.Element} The rendered component.
+ */
 const MenuBar = ({ editor }) => {
 
   // Text Style Dropdown Settings
   const [isTextStyleDropdownActive, setIsTextStyleDropdownActive] = useState(false);
   const [selectedTextStyle, setSelectedTextStyle] = useState('Normal text');
 
-  // Link URL Settings
+  /**
+   * Sets the link URL in the editor.
+   */
   const setLink = useCallback(() => {
     const previousUrl = editor.getAttributes('link').href
     const url = window.prompt('URL', previousUrl)
@@ -72,7 +85,9 @@ const MenuBar = ({ editor }) => {
       .run()
   }, [editor])
 
-  // Add Image settings
+  /**
+   * Adds an image to the editor.
+   */
   const addImage = useCallback(() => {
     const url = window.prompt('URL')
 
@@ -88,8 +103,10 @@ const MenuBar = ({ editor }) => {
 
   return (
     <div id='menubar' className='flex items-center bg-white h-[46px] my-2 px-2 gap-2 rounded-[10px] overflow-x-scroll relative'>
+      {/* Undo and Redo buttons */}
       <div id='group-history' className="h-7 flex items-center">
-        <button 
+        {/* Undo button */}
+        <button
           type='button'
           className="cursor-pointer"
           onClick={() => editor.chain().focus().undo().run()}
@@ -105,8 +122,9 @@ const MenuBar = ({ editor }) => {
             <path d="M16.5 10.25H8.88438L11.1263 8.00875L10.25 7.125L6.5 10.875L10.25 14.625L11.1263 13.7406L8.88625 11.5H16.5C17.4946 11.5 18.4484 11.8951 19.1517 12.5983C19.8549 13.3016 20.25 14.2554 20.25 15.25C20.25 16.2446 19.8549 17.1984 19.1517 17.9017C18.4484 18.6049 17.4946 19 16.5 19H11.5V20.25H16.5C17.8261 20.25 19.0979 19.7232 20.0355 18.7855C20.9732 17.8479 21.5 16.5761 21.5 15.25C21.5 13.9239 20.9732 12.6521 20.0355 11.7145C19.0979 10.7768 17.8261 10.25 16.5 10.25Z" fill="#212529" />
           </svg>
         </button>
-
-        <button 
+        
+        {/* Redo button */}
+        <button
           type='button'
           className="cursor-pointer"
           onClick={() => editor.chain().focus().redo().run()}
@@ -123,16 +141,19 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
       </div>
-
-      <div className="text-style-dropdown select-none min-w-[109px] h-7 relative z-50"> {/* Dropdown */}
+      
+      {/* Text Style Dropdown */}
+      <div className="text-style-dropdown select-none min-w-[109px] h-7 relative z-50">
+        {/* Dropdown Button */}
         <div className="text-style-dropdown-btn text-center flex justify-around items-center cursor-pointer h-full w-full text-sm" onClick={() => { setIsTextStyleDropdownActive((prev) => !prev) }}> {/* Dropdown Button */}
           <span>{selectedTextStyle}</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"> {/** Dropdown Icon */}
             <path d="M8 11L3 5.99999L3.7 5.29999L8 9.59999L12.3 5.29999L13 5.99999L8 11Z" fill="#212529" />
           </svg>
         </div>
+        {/* Dropdown Content */}
         {
-          isTextStyleDropdownActive && <div className="text-style-dropdown-content absolute -bottom-[200px] w-full z-50 bg-slate-50 text-sm rounded overflow-hidden"> {/* Dropdown Content */}
+          isTextStyleDropdownActive && <div className="text-style-dropdown-content absolute -bottom-[200px] w-full z-50 bg-slate-50 text-sm rounded overflow-hidden">
             {
               Object.entries(TextStyleOptions).map(([key, value]) => {
                 if (key === 'paragraph') {
@@ -167,8 +188,9 @@ const MenuBar = ({ editor }) => {
           </div>
         }
       </div>
-
-      <button 
+      
+      {/* Set Purple Text Color Button */}
+      <button
         type='button'
         onClick={() => editor.chain().focus().setColor('#958DF1').run()}
         className={editor.isActive('textStyle', { color: '#958DF1' }) ? 'is-active' : ''}
@@ -176,8 +198,9 @@ const MenuBar = ({ editor }) => {
         purple
       </button>
 
+      {/* Bold Button */}
       <div className="text-format h-7 flex items-center">
-        <button 
+        <button
           type='button'
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={
@@ -194,7 +217,8 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
 
-        <button 
+        {/* Italics Button */}
+        <button
           type='button'
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={
@@ -211,7 +235,8 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
 
-        <button 
+        {/* Underline Button */}
+        <button
           type='button'
           onClick={() => editor.chain().focus().toggleUnderline().run()}
           className={editor.isActive('underline') ? 'is-active' : ''}
@@ -221,7 +246,8 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
 
-        <button 
+        {/* Strikethrough Button */}
+        <button
           type='button'
           onClick={() => editor.chain().focus().toggleStrike().run()}
           disabled={
@@ -238,7 +264,8 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
 
-        <button 
+        {/* Codeline Button */}
+        <button
           type='button'
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={
@@ -255,7 +282,8 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
 
-        <button 
+        {/* Subscript Button */}
+        <button
           type='button'
           onClick={() => editor.chain().focus().toggleSubscript().run()}
           className={editor.isActive('subscript') ? 'is-active' : ''}
@@ -269,7 +297,8 @@ const MenuBar = ({ editor }) => {
           </div>
         </button>
 
-        <button 
+        {/* Superscript Button */}
+        <button
           type='button'
           onClick={() => editor.chain().focus().setSuperscript().run()}
           disabled={editor.isActive('superscript')}
@@ -285,7 +314,8 @@ const MenuBar = ({ editor }) => {
       </div>
 
       <div className="list h-7 flex items-center">
-        <button 
+        {/* Bullet List Button */}
+        <button
           type='button'
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editor.isActive('bulletList') ? 'is-active' : ''}
@@ -297,7 +327,8 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
 
-        <button 
+        {/* Ordered List Button */}
+        <button
           type='button'
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={editor.isActive('orderedList') ? 'is-active' : ''}
@@ -307,11 +338,12 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
       </div>
-
+      
       <div className="awesome-options h-7 flex items-center">
-        <button 
-          type='button' 
-          onClick={setLink} 
+        {/* Link Button */}
+        <button
+          type='button'
+          onClick={setLink}
           className={editor.isActive('link') ? 'is-active' : ''}
         >
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -319,7 +351,8 @@ const MenuBar = ({ editor }) => {
             <path d="M6.61879 19.5125C6.38541 19.2802 6.20022 19.0041 6.07386 18.7C5.94749 18.396 5.88244 18.0699 5.88244 17.7407C5.88244 17.4114 5.94749 17.0853 6.07386 16.7813C6.20022 16.4772 6.38541 16.2011 6.61879 15.9688L11.6188 10.9688C11.8511 10.7354 12.1272 10.5502 12.4313 10.4238C12.7353 10.2975 13.0614 10.2324 13.3907 10.2324C13.7199 10.2324 14.046 10.2975 14.3501 10.4238C14.6541 10.5502 14.9302 10.7354 15.1625 10.9688C15.3944 11.2029 15.577 11.4812 15.6994 11.7872C15.8218 12.0931 15.8815 12.4206 15.875 12.75C15.8769 13.0805 15.8133 13.4081 15.6878 13.7139C15.5623 14.0196 15.3774 14.2974 15.1438 14.5313L13.8188 15.875L14.7063 16.7625L16.0313 15.4375C16.7366 14.7322 17.1328 13.7756 17.1328 12.7782C17.1328 11.7807 16.7366 10.8241 16.0313 10.1188C15.326 9.41347 14.3694 9.01723 13.3719 9.01723C12.3745 9.01723 11.4179 9.41347 10.7125 10.1188L5.71254 15.1188C5.362 15.4673 5.08382 15.8816 4.89399 16.338C4.70417 16.7944 4.60645 17.2839 4.60645 17.7782C4.60645 18.2725 4.70417 18.7619 4.89399 19.2183C5.08382 19.6747 5.362 20.089 5.71254 20.4375C6.42431 21.1303 7.38185 21.5124 8.37504 21.5C9.37698 21.501 10.3386 21.1055 11.05 20.4L10.1625 19.5125C9.93025 19.7459 9.65413 19.9311 9.35006 20.0575C9.04599 20.1838 8.71995 20.2489 8.39067 20.2489C8.06138 20.2489 7.73534 20.1838 7.43127 20.0575C7.1272 19.9311 6.85109 19.7459 6.61879 19.5125Z" fill="#212529" />
           </svg>
         </button>
-
+        
+        {/* Image Button */}
         <button
           type='button'
           onClick={addImage}
@@ -330,6 +363,7 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
 
+        {/* Code Block Button */}
         <button
           type='button'
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
@@ -339,7 +373,8 @@ const MenuBar = ({ editor }) => {
             <path d="M23.375 14L19 18.375L18.1187 17.4937L21.6063 14L18.1187 10.5062L19 9.625L23.375 14ZM4.625 14L9 9.625L9.88125 10.5062L6.39375 14L9.88125 17.4937L9 18.375L4.625 14ZM11.7625 19.9275L15.025 7.75L16.2325 8.07313L12.97 20.25L11.7625 19.9275Z" fill="#212529" />
           </svg>
         </button>
-
+        
+        {/* Blockqoute Button */}
         <button
           type='button'
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
@@ -350,6 +385,7 @@ const MenuBar = ({ editor }) => {
           </svg>
         </button>
 
+        {/* Add Horizontal Line Button */}
         <button
           type='button'
           onClick={() => editor.chain().focus().setHorizontalRule().run()
@@ -363,6 +399,17 @@ const MenuBar = ({ editor }) => {
   )
 }
 
+/**
+ * @component
+ * A text editor component.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.id - The ID of the text editor container.
+ * @param {string} props.editorValue - The initial value of the editor content.
+ * @param {Function} props.setEditorValue - The callback function to update the editor content.
+ * @param {string} props.editorPlaceholder - The placeholder text for the editor.
+ * @returns {JSX.Element} The text editor component.
+ */
 const TextEditor = ({ id, editorValue, setEditorValue, editorPlaceholder }) => {
   const editor = useEditor({
     extensions: [
@@ -386,11 +433,11 @@ const TextEditor = ({ id, editorValue, setEditorValue, editorPlaceholder }) => {
       StarterKit.configure({
         bulletList: {
           keepMarks: true,
-          keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+          keepAttributes: false, // TODO: Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
         },
         orderedList: {
           keepMarks: true,
-          keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+          keepAttributes: false, // TODO: Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
         },
       }),
     ],

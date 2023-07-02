@@ -4,14 +4,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '../../actions/currentUser';
 import { NavLink } from 'react-router-dom';
 
+/**
+ * @component
+ * Component representing the top menu.
+ *
+ * @param {string} currentPage - The current page name.
+ * @param {string} fromPage - The page from which the user navigated.
+ * @returns {JSX.Element} JSX element representing the top menu.
+ */
 const TopMenu = ({ currentPage, fromPage }) => {
 
     /**
-     * MOBILE OR DESKTOP?
+     * MOBILE OR DESKTOP?:
+     * Determines whether the current view is mobile or desktop.
      */
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        /**
+         * Event handler for window resize.
+         */
         const handleResize = () => {
             const { innerWidth } = window;
             setIsMobile(innerWidth <= 768);
@@ -38,12 +50,16 @@ const TopMenu = ({ currentPage, fromPage }) => {
     }
     let user = null;
     useEffect(() => {
+        /**
+         * Fetches and sets the current user from local storage.
+         */
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
     }, [dispatch])
     user = fetchedUser ? fetchedUser.result : null;
 
     /**
-     * PAGE NAME
+     * Object containing page names.
+     * @type {object}
      */
     const pageName = {
         'home': 'Home',
@@ -58,11 +74,14 @@ const TopMenu = ({ currentPage, fromPage }) => {
 
     return (
         <div id='topmenu' className={`${isMobile ? 'w-full' : 'w-[360px]'} h-16 flex justify-between items-center`}>
+            {/* Left side of top menu  */}
             <div id="left_topmenu">
                 {
                     currentPage === 'home' ?
+                        // On homepage, display name on the left side. Display only first name on mobile devices.
                         <div id="username" className='text-xl text-center'>{isMobile ? `${ user ? user.firstName : '' }` : `${ user ? user.firstName : '' } ${ user ? user.lastName : '' }`}</div>
                         :
+                        // On other pages display back button.
                         <div className='flex justify-center items-center gap-2'>
                             <NavLink to={`/${fromPage === 'home' ? '' : fromPage}`}>
                                 <div id='backbutton' className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
@@ -77,13 +96,16 @@ const TopMenu = ({ currentPage, fromPage }) => {
                         </div>
                 }
             </div>
-
+            
+            {/* Right Side of the top menu */}
             <div id="right_topmenu" className='flex justify-center item-center gap-2'>
+                {/* Toggle Theme Button: Dark/Light */}
                 <div id='toggletheme' className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21.5 14.0784C20.3003 14.7189 18.9301 15.0821 17.4751 15.0821C12.7491 15.0821 8.91792 11.2509 8.91792 6.52485C8.91792 5.06986 9.28105 3.69968 9.92163 2.5C5.66765 3.49698 2.5 7.31513 2.5 11.8731C2.5 17.1899 6.8101 21.5 12.1269 21.5C16.6849 21.5 20.503 18.3324 21.5 14.0784Z" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
+                {/* Notification Button */}
                 <NavLink to='/notifications'>
                     <div id='notifications' className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,6 +114,7 @@ const TopMenu = ({ currentPage, fromPage }) => {
                         </svg>
                     </div>
                 </NavLink>
+                {/* On Profile Page, this button will be for edit profile/settings; On rest other pages this should be Profile Button. */}
                 <div className="bg-white w-[40px] max-w-[40px] h-[40px] max-h-[40px] rounded-full flex justify-center items-center cursor-pointer">
                     {
                         currentPage === 'profile' ?

@@ -5,19 +5,29 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { login } from './../../actions/auth';
 
+/**
+ * @component
+ * Login Component
+ * Renders a login form and handles form submission.
+ * 
+ * @returns {JSX.Element} - The JSX element for the login page.
+ */
 export default function Login() {
 
-  /**
-   * HANDLE SHOW/HIDE PASSWORD
-   */
+  // HANDLE SHOW/HIDE PASSWORD
   const [showPassword, setShowPassword] = useState(false);
 
+  /**
+   * Toggle Show/Hide Password:
+   * Toggles the visibility of the password input field.
+   */
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   }
 
   /**
-   * FORM DATA
+   * FORM DATA:
+   * Stores and manages the data entered in the form.
    */
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,6 +35,12 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  /**
+   * Handle Submit:
+   * Handles the form submission and dispatches a login action.
+   * 
+   * @param {Object} e - The form submit event.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -57,7 +73,7 @@ export default function Login() {
 
   return (
     <div className='w-full h-screen flex justify-center items-center bg-[#f2f2f2]'>
-
+      {/* Toast container for displaying notifications */}
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -85,6 +101,7 @@ export default function Login() {
             <div className='absolute right-2 top-10 cursor-pointer'>
               {
                 (showPassword === false) ?
+                  // Show open eye icon when password is hidden
                   <svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={toggleShowPassword}>
                     <path d="M14.6667 1.33334C14.6667 1.33334 12 5.33334 8.00004 5.33334C4.00004 5.33334 1.33337 1.33334 1.33337 1.33334" stroke="#2A353D" strokeLinecap="round" />
                     <path d="M10 5L11 6.66667" stroke="#2A353D" strokeLinecap="round" strokeLinejoin="round" />
@@ -93,6 +110,7 @@ export default function Login() {
                     <path d="M6 5L5 6.66667" stroke="#2A353D" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   :
+                  // Show closed eye icon when password is visible
                   <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={toggleShowPassword}>
                     <path d="M14.3623 5.36333C14.565 5.64754 14.6663 5.78965 14.6663 6C14.6663 6.21036 14.565 6.35247 14.3623 6.63668C13.4516 7.91371 11.1258 10.6667 7.99967 10.6667C4.87353 10.6667 2.54774 7.91371 1.63704 6.63668C1.43435 6.35247 1.33301 6.21036 1.33301 6C1.33301 5.78965 1.43435 5.64754 1.63703 5.36333C2.54774 4.0863 4.87353 1.33334 7.99967 1.33334C11.1258 1.33334 13.4516 4.0863 14.3623 5.36333Z" stroke="#2A353D" />
                     <path d="M10 6C10 4.89543 9.10457 4 8 4C6.89543 4 6 4.89543 6 6C6 7.10457 6.89543 8 8 8C9.10457 8 10 7.10457 10 6Z" stroke="#2A353D" />
