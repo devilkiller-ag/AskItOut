@@ -6,12 +6,21 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import "./index.css";
 import App from "./App";
-import Reducers from './reducers';
+import Reducers from "./reducers";
 
+// Create the Redux store with the root reducer and middleware
 const store = createStore(Reducers, compose(applyMiddleware(thunk)));
 
+// Create a root element for rendering the React app
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// Render the app component within the Redux provider and strict mode
 root.render(
+  /**
+   * The root component of the application.
+   *
+   * @returns {JSX.Element} The root component JSX element.
+   */
   <Provider store={store}>
     <React.StrictMode>
       <App />

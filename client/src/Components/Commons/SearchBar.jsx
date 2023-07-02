@@ -2,12 +2,26 @@ import React, { useState, useEffect } from 'react';
 import SearchSnake from './../../Assets/images/SearchSnake.png';
 import './../../styles/SearchArea.css';
 
+/**
+ * @component
+ * SearchBar component displays a search bar with filtered results.
+ *
+ * @param {string} placeholder - The placeholder text for the search input.
+ * @param {Array} searchdata - The array of data to be filtered.
+ * @returns {JSX.Element} JSX element representing the search bar.
+ */
 const SearchBar = ({ placeholder, searchdata }) => {
 
-    // MOBILE OR DESKTOP
+    /**
+     * MOBILE OR DESKTOP?:
+     * Determines whether the current view is mobile or desktop.
+     */
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        /**
+         * Handle window resize event.
+         */
         const handleResize = () => {
             const { innerWidth } = window;
             setIsMobile(innerWidth <= 768);
@@ -26,6 +40,12 @@ const SearchBar = ({ placeholder, searchdata }) => {
     // FILTER DATA
     const [filteredData, setFilteredData] = useState([])
 
+    /**
+     * Handle filter event.
+     * Filters the search data based on the input value.
+     *
+     * @param {Object} event - The input event object.
+     */
     const handleFilter = (event) => {
         const searchWord = event.target.value
 
@@ -58,7 +78,7 @@ const SearchBar = ({ placeholder, searchdata }) => {
                 </div>
                 <input type="text" placeholder={placeholder} onChange={handleFilter} className='w-full px-4 h-10 font-base text-[14px] border-none text-sm font-light focus:outline-none' />
             </div>
-            <div className={`${ isSearchActive? "block" : "hidden" } dataresults w-full ${isMobile ? "" : ""} bg-[#f2f2f2] mt-3 border-2 rounded-[20px] overflow-hidden overflow-y-auto flex flex-col justify-center items-center`}>
+            <div className={`${isSearchActive ? "block" : "hidden"} dataresults w-full ${isMobile ? "" : ""} bg-[#f2f2f2] mt-3 border-2 rounded-[20px] overflow-hidden overflow-y-auto flex flex-col justify-center items-center`}>
                 {
                     filteredData.length === 0 && !isMobile ?
                         <div>
@@ -66,14 +86,16 @@ const SearchBar = ({ placeholder, searchdata }) => {
                             <p className='text-sm text-gray-500 px-4 text-center'>Type above to make me search your question!</p>
                         </div>
                         :
+                        // Displayed when there are filtered results or on mobile
                         <div className='w-full h-full flex flex-col justify-start items-start'>
+                            {/* Iterate over filteredData and display the results */}
                             {
                                 (filteredData.slice(0, 10).map((value, key) => { // Show only top 10 results
                                     return (
                                         <div className='w-full bg-white p-3 last:rounded-b-[20px] hover:bg-[#f2f2f2]' key={key}>
                                             <a href={value.link} target='_blank' rel="noreferrer">
-                                            <p>{value.title}</p>
-                                        </a>
+                                                <p>{value.title}</p>
+                                            </a>
                                         </div>
                                     );
                                 }))

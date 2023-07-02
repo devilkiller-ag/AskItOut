@@ -5,11 +5,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '../../actions/currentUser';
 import decode from 'jwt-decode';
 
+/**
+ * @component
+ * Component for the bottom menu.
+ * Renders navigation links and icons.
+ *
+ * @param {Object} props - The props object having name of Current Page.
+ * @returns {JSX.Element} The JSX element representing the bottom menu.
+ */
 const BottomMenu = (props) => {
 
   /**
-     * MOBILE OR DESKTOP?
-     */
+   * MOBILE OR DESKTOP?:
+   * Determines whether the current view is mobile or desktop.
+   */
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -29,7 +38,8 @@ const BottomMenu = (props) => {
   }, [])
 
   /**
-   * USER INFO
+   * USER INFO:
+   * Stores user-related information.
    */
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,11 +49,14 @@ const BottomMenu = (props) => {
   }
   let user = null;
   useEffect(() => {
-    // CHECK IF THE AAUTH TOKEN IS ALIVE OR NOT: IF THE USER IS LOGGED IN FOR MORE THAN 1 Hr., THEN AUTH TOKEN EXPIRES AND USER WILL NEED TO RELOGIN
+    /**
+     * Check if the authentication token is alive or not.
+     * If the user is logged in for more than 1 hour, then the auth token expires and the user will need to re-login.
+     */
     const token = fetchedUser?.token;
-    if(token) {
+    if (token) {
       const decodedToken = decode(token);
-      if(decodedToken.exp * 1000 < new Date().getTime()) {
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
         handleLogout();
       }
     }
@@ -53,6 +66,7 @@ const BottomMenu = (props) => {
 
   /**
    * HANDLE LOGOUT REQUEST
+   * Dispatches the logout action, navigates to the login page, and sets the current user to null.
    */
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -61,10 +75,14 @@ const BottomMenu = (props) => {
   }
 
   /**
-   * CENTRAL ICON
+   * Renders the central icon based on the current page.
+   *
+   * @param {string} currentPage - The current page.
+   * @returns {JSX.Element} The JSX element representing the central icon.
    */
   const centralIcon = (currentPage) => {
     if (currentPage === 'HomePage') {
+      /** On Homepage, Central Button should be for Asking Question. */
       return (
         <NavLink to={user === null ? '/login' : '/ask'}>
           <svg id='AskQuestionIcon' className='cursor-pointer' width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +92,7 @@ const BottomMenu = (props) => {
         </NavLink>
       )
     } else if (currentPage === 'QuestionPage') {
+      /** On Question Thread Page, Central Button should be for Posting Answer. */
       return (
         <button type='submit'>
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,6 +102,7 @@ const BottomMenu = (props) => {
         </button>
       )
     } else if (currentPage === 'AskPage') {
+      /** On Ask Question Page, Central Button should be for Posting Question. */
       return (
         <button type='submit'>
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,6 +113,7 @@ const BottomMenu = (props) => {
 
       )
     } else if (currentPage === 'ProfilePage') {
+      /** On Profile Page, Central Button should be for Logout. */
       return (
         <svg onClick={handleLogout} id='LogoutIcon' className='cursor-pointer' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 17.625C14.9264 19.4769 13.3831 21.0494 11.3156 20.9988C10.8346 20.987 10.2401 20.8194 9.05112 20.484C6.18961 19.6768 3.70555 18.3203 3.10956 15.2815C3 14.723 3 14.0944 3 12.8373L3 11.1627C3 9.90561 3 9.27705 3.10956 8.71846C3.70555 5.67965 6.18961 4.32316 9.05112 3.51603C10.2401 3.18064 10.8346 3.01295 11.3156 3.00119C13.3831 2.95061 14.9264 4.52307 15 6.37501" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
@@ -100,6 +121,7 @@ const BottomMenu = (props) => {
         </svg>
       )
     } else {
+      /** On any other page, Central Button should be for Asking Question. */
       return (
         <NavLink to={user === null ? '/login' : '/ask'}>
           <svg id='AskQuestionIcon' className='cursor-pointer' width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,8 +133,13 @@ const BottomMenu = (props) => {
     }
   }
 
+  /**
+   * Renders the bottom menu component.
+   * @returns {JSX.Element} - The rendered bottom menu component.
+   */
   return (
     <div className='w-full sm:max-w-[400px] h-[74px] bg-white rounded-t-[24px] sm:rounded-[35px] sm:mb-3 p-9 flex justify-around items-center fixed bottom-0 sm:bottom-3'>
+      {/* Home Button */}
       <NavLink to='/'>
         <svg id='homeIcon' className='cursor-pointer' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15.0002 17C14.2006 17.6224 13.1504 18 12.0002 18C10.8499 18 9.79968 17.6224 9.00015 17" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" />
@@ -120,6 +147,7 @@ const BottomMenu = (props) => {
         </svg>
       </NavLink>
 
+      {/* Explore Button */}
       <NavLink to='/explore'>
         <svg id='exploreIcon' className='cursor-pointer' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9.36134 6.87575C9.24969 6.22135 9.58839 5.68105 10.1768 5.37375C12.2707 4.28025 15.1262 3.02979 18.3279 2.04385C19.264 1.75559 20.2418 2.23534 20.5599 3.16171C20.8515 4.01105 21.2316 5.21605 21.6593 6.8124C22.087 8.40875 22.3604 9.64235 22.5326 10.5237C22.7203 11.485 22.1133 12.3894 21.1585 12.6078C17.8928 13.3548 14.7946 13.6996 12.4345 13.7996C11.7712 13.8277 11.2078 13.5291 10.9773 12.9066C10.7649 12.333 10.4672 11.4075 10.0682 9.91825C9.66914 8.42895 9.46424 7.47865 9.36134 6.87575Z" stroke="black" strokeWidth="1.5" strokeLinejoin="round" />
@@ -130,10 +158,12 @@ const BottomMenu = (props) => {
         </svg>
       </NavLink>
 
+      {/* Central Button */}
       <div id='centralIcon' className="w-10 h-10 bg-black rounded-2xl flex items-center justify-center">
         {centralIcon(props.currentPage)}
       </div>
 
+      {/* View Saved Questions Button */}
       <NavLink to={user === null ? '/login' : '/saved'}>
         <svg id='favBookmarksIcon' className='cursor-pointer' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_20_22)">
@@ -149,6 +179,7 @@ const BottomMenu = (props) => {
         </svg>
       </NavLink>
 
+      {/* View My Questions Button */}
       <NavLink to={user === null ? '/login' : '/myquestions'}>
         <svg id='myQuestionsIcon' className='cursor-pointer' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8.5 14.5H15.5M8.5 9.5H12" stroke="#2A353D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -159,4 +190,4 @@ const BottomMenu = (props) => {
   )
 }
 
-export default BottomMenu
+export default BottomMenu;
