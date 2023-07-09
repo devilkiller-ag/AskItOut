@@ -12,6 +12,9 @@ Most students enrol in coaching since their questions are not answered in school
 
 We intend to create a platform that will enable educational institutions enhance their teaching approach by providing a doubts-solving-platform tailored to their course curriculum, where students can post their doubts and their seniors and teachers with relevant experience can answer them. We intend to create this platform so that points, levels, and tiers will encourage students and teachers to ask and resolve questions. 
 
+## Video Preview
+https://github.com/devilkiller-ag/AskItOut/assets/43639341/4d4d79ca-f259-4bb6-9b88-88ef5072082d
+
 ## Features
 - The text editor for writing questions and answers was developed using TipTap. It has various editing features like headings, text color, bold, italic, qoutes, code, subscript, subscript, strikeout, underline, link, unordered list, ordered list, images, and many more features will be added soon.
 - User can flash, and share questions.
