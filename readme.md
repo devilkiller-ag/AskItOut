@@ -5,6 +5,13 @@ AskItOut is a doubt sharing website for educational institutions where students 
 - The server is live [here](https://askitout-backend.onrender.com).
 - The preview of figma design is available [here](https://www.figma.com/proto/u41aTTJzAxouyKXEdXxaDP/AskItOut-Design?page-id=0%3A1&type=design&node-id=40-196&viewport=388%2C204%2C0.3&scaling=scale-down&mode=design).
 
+## Abstract
+Students in India's primary and secondary schools frequently take tuition classes for a variety of reasons. India's education system is very competitive, and students are under a great deal of pressure to perform well on their examinations. The curriculum can be difficult, with an emphasis on memorization and rote learning. In many instances, parents believe that their children require additional assistance and support outside of the classroom to keep up with the curriculum's pace and to guarantee that the information is completely learned. In addition, some parents believe that the quality of education provided by their child's school is insufficient and that tuition classes might provide a more comprehensive education for their child.
+
+Most students enrol in coaching since their questions are not answered in school and they cannot self-practice the concepts covered in class owing to a lack of assistance after class. After-school coaching increases children' workload, causes stress due to different topics covered at two places at the same time and different teaching methodology, and absorbs nearly their entire day. As a result, they are unable to self-research topics and generate interest in them, devote less time to physical activities, and are unable to investigate beyond the school/college curriculum. Students enrolling in coaching institutes reflects the inadequacy of the current education system, which does not prioritise students adequately.
+
+We intend to create a platform that will enable educational institutions enhance their teaching approach by providing a doubts-solving-platform tailored to their course curriculum, where students can post their doubts and their seniors and teachers with relevant experience can answer them. We intend to create this platform so that points, levels, and tiers will encourage students and teachers to ask and resolve questions. 
+
 ## Features
 - The text editor for writing questions and answers was developed using TipTap. It has various editing features like headings, text color, bold, italic, qoutes, code, subscript, subscript, strikeout, underline, link, unordered list, ordered list, images, and many more features will be added soon.
 - User can flash, and share questions.
