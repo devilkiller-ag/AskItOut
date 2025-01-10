@@ -1,6 +1,6 @@
 ## Usage Log for AskItOut
 
-This file tracks all authorized uses of the AskItOut project. To use this project, open a Pull Request adding your entry to this log, including all required details. Proper credit should be given to the original authors: [Ashmit Gupta](https://www.ashmit.dev) and [Aryan Gupta](https://github.com/aryanguptaaa) including links to their website or github profile.
+This file tracks all authorized uses of the AskItOut project. To use this project, open a Pull Request and add your entry to this log, including all required details. Proper credit should be given to the original authors: [Ashmit Gupta](https://www.ashmit.dev) and [Aryan Gupta](https://github.com/aryanguptaaa), including links to their website or GitHub profile. Also, include a link to this repository while giving credit. It is mandatory to write credits in your project readme file, project website (footer or about page), and presentation slides.
 
 ---
 
